@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FooterComponent } from "../footer/footer.component";
 
 @Component({
@@ -9,4 +9,10 @@ import { FooterComponent } from "../footer/footer.component";
 })
 export class HeaderComponent {
 
+  isScrolled = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > 50;
+  }
 }

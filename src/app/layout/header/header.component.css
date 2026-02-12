@@ -1,17 +1,48 @@
 /* ============================================
    HEADER CONTAINER
-   Contenedor principal del header con fondo
-   oscuro azulado y efecto glassmorphism
    ============================================ */
 .header-container {
   width: 100%;
-  background: rgb(10, 1, 41);
-  backdrop-filter: blur(10px);
-  padding: 1rem 0;
-  position: relative;
+  
+  /* 1. ESTO HACE QUE TE SIGA (FIXED) */
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Asegura que esté siempre encima de todo */
+
+  /* 2. ESTO HACE QUE SEA TRANSPARENTE AL INICIO */
+  /* Al ser transparente y fixed, se ve el Home Component que está debajo */
+  background: transparent; 
+  
+  /* Sin borrosidad al principio */
+  backdrop-filter: none; 
+  
+  padding: 1.5rem 0; /* Un poco más alto al principio */
+  transition: all 0.4s ease; /* Animación suave */
 }
 
-/* Línea decorativa inferior con gradiente azul */
+/* ============================================
+   ESTADO SCROLLEADO (CLASE .scrolled)
+   Esta clase se activa sola cuando bajas
+   ============================================ */
+.header-container.scrolled {
+  /* Fondo azul oscuro semitransparente */
+  background: rgba(10, 1, 41, 0.90); 
+  
+  /* Efecto vidrio esmerilado */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  
+  /* Se hace un poco más fino al bajar */
+  padding: 0.8rem 0; 
+  
+  /* Sombra suave */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   LÍNEA DECORATIVA INFERIOR
+   ============================================ */
 .header-container::after {
   content: '';
   position: absolute;
@@ -20,97 +51,75 @@
   width: 100%;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.5), transparent);
+  
+  /* Invisible al principio */
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+}
+
+/* La línea aparece suavemente solo cuando bajas */
+.header-container.scrolled::after {
+  opacity: 1; 
 }
 
 /* ============================================
-   HEADER WRAPPER
-   Contenedor interno que limita el ancho máximo
-   y centra el contenido del header
+   HEADER WRAPPER (Alineación)
    ============================================ */
 .header-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem; 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Manda logo a la izq y nav a la der */
   align-items: center;
-}
-
-/* ============================================
-   LOGO CONTAINER
-   Contenedor del logo con posicionamiento
-   personalizado hacia la izquierda
-   ============================================ */
-.logo-container {
-  display: flex;
-  align-items: center;
-  position: relative;
-  left: -12rem;
-  margin-left: -1rem;
-  padding: 0.5rem;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 50%;
-  box-shadow: 0 0 20px rgba(100, 200, 255, 0.4);
 }
 
 /* ============================================
    LOGO
-   Estilos del logo circular con efectos
-   de resplandor y animaciones
    ============================================ */
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.2); /* Fondo sutil para el logo */
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(100, 200, 255, 0.2);
+}
+
 .logo {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid rgba(100, 200, 255, 0.6);
-  box-shadow: 
-    0 0 20px rgba(100, 200, 255, 0.6),
-    0 0 40px rgba(100, 200, 255, 0.3),
-    inset 0 0 20px rgba(100, 200, 255, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(100, 200, 255, 0.6);
+  transition: transform 0.3s ease;
 }
 
-/* Efecto hover: zoom y aumento de resplandor */
 .logo:hover {
   transform: scale(1.05);
-  box-shadow: 
-    0 0 30px rgba(100, 200, 255, 0.8),
-    0 0 60px rgba(100, 200, 255, 0.4),
-    inset 0 0 30px rgba(100, 200, 255, 0.3);
 }
 
 /* ============================================
-   NAVIGATION CONTAINER
-   Contenedor de los enlaces de navegación
+   NAVEGACIÓN
    ============================================ */
 .nav-container {
   display: flex;
   gap: 2rem;
   align-items: center;
-  margin-left: auto;
-  padding-left: 2rem;
-  left: 10rem;
-  position: relative;
 }
 
-/* ============================================
-   NAVIGATION LINKS
-   Estilos de los enlaces de navegación con
-   efecto de subrayado animado
-   ============================================ */
 .nav-link {
   text-decoration: none;
-  color: #c4c4c4;
+  color: #e2e8f0; /* Blanco grisáceo para leerse bien */
   font-weight: 500;
   font-size: 1rem;
   padding: 0.5rem 0;
   position: relative;
   transition: color 0.3s ease;
-  letter-spacing: 0.2px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra para leerse sobre cualquier imagen */
 }
 
-/* Subrayado animado con gradiente */
+/* Subrayado animado */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -126,27 +135,12 @@
   color: #ffffff;
 }
 
-/* Expansión del subrayado al hacer hover */
 .nav-link:hover::after {
   width: 100%;
 }
 
 /* ============================================
-   BUTTON CONTAINER
-   Contenedor del botón de acción principal
-   posicionado a la derecha
-   ============================================ */
-.button-container {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  padding-left: 2rem;
-}
-
-/* ============================================
-   AGENDAR BUTTON
-   Botón de llamada a la acción con gradiente
-   y efectos de elevación
+   BOTÓN AGENDAR
    ============================================ */
 .agendar-btn {
   background: linear-gradient(90deg, #4a90e2, #9b59b6);
@@ -155,30 +149,35 @@
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 0.95rem;
   cursor: pointer;
+  margin-left: 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Efecto hover: elevación y sombra */
 .agendar-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
 }
 
 /* ============================================
-   RESPONSIVE DESIGN
-   Ajustes para dispositivos móviles
+   RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
   .header-wrapper {
     flex-direction: column;
     gap: 1rem;
+    padding: 1rem;
   }
-
+  
   .nav-container {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+  }
+  
+  .agendar-btn {
+    margin-left: 0;
   }
 }
