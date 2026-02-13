@@ -1,0 +1,173 @@
+/* ============================================
+   SECCIÓN DE SERVICIOS DETALLADOS
+   ============================================ */
+.servicios-detallados-section {
+  background-color: #ffffff; 
+  padding: 6rem 2rem; /* Más espacio vertical general */
+  color: #1a202c; 
+}
+
+.sd-container {
+  max-width: 1400px; /* LA CLAVE DE LA ANCHURA: Pasamos de 1200px a 1400px */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; 
+  gap: 3rem;
+}
+
+/* ============================================
+   COLUMNA IZQUIERDA "STICKY"
+   ============================================ */
+.sd-subtitle {
+  color: #3b82f6; 
+  font-size: 0.85rem; 
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.8rem;
+}
+
+.sd-title {
+  font-size: 3.2rem; /* Título gigante como en la foto */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: #0f172a; /* Azul marino casi negro */
+}
+
+/* El color específico para "Redes Sociales" */
+.text-gris {
+  color: #94a3b8; /* Gris azulado claro de tu diseño */
+}
+
+.sd-text {
+  color: #475569; 
+  font-size: 1.05rem; /* Texto un poco más grande */
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  padding-right: 1rem; /* Un poco de margen para que no toque la foto */
+}
+
+.sd-image-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+}
+
+.sd-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   COLUMNA DERECHA: LISTA DE TARJETAS
+   ============================================ */
+.sd-lista-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Separación amplia entre tarjetas */
+}
+
+/* Estilos de cada tarjeta individual */
+.sd-card {
+  background-color: #f8fafc; /* Fondo gris/azulado súper claro como en la foto */
+  border: none; /* Quitamos el borde oscuro */
+  border-radius: 12px; 
+  padding: 2.5rem; /* Mucho padding (aire) interior para que se vean grandes */
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.sd-card:hover {
+  background-color: #ffffff; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* Sombra elegante al pasar el mouse */
+  transform: translateY(-4px);
+}
+
+.sd-card-icon {
+  color: #3b82f6;
+  background-color: #ffffff; /* Cuadrito blanco para el ícono */
+  border: 1px solid #e2e8f0; 
+  padding: 0.8rem; 
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; 
+}
+
+.sd-card-icon svg {
+    width: 24px; /* Íconos un poco más grandes */
+    height: 24px;
+}
+
+.sd-card-content {
+  flex-grow: 1;
+}
+
+.sd-card-title {
+  font-size: 1.25rem; /* Títulos más presentes */
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  color: #0f172a;
+}
+
+.sd-card-desc {
+  color: #475569;
+  font-size: 0.95rem; 
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.sd-card-list {
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+}
+
+.sd-card-list li {
+  color: #64748b;
+  font-size: 0.9rem; 
+  margin-bottom: 0.4rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+/* El puntito azul */
+.sd-card-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem; 
+  width: 5px;
+  height: 5px;
+  background-color: #3b82f6; /* Celeste intenso */
+  border-radius: 50%;
+}
+
+
+/* ============================================
+   MEDIA QUERY PARA ESCRITORIO
+   ============================================ */
+@media (min-width: 992px) {
+  .sd-container {
+    flex-direction: row; 
+    align-items: flex-start; 
+    justify-content: space-between; 
+    gap: 6rem; /* Separación gigante entre izquierda y derecha */
+  }
+
+  .sd-intro-sticky {
+    flex: 0 0 40%; /* La izquierda ocupa el 40% del espacio total */
+    position: sticky;
+    top: 4rem; 
+  }
+
+  .sd-lista-cards {
+    flex: 0 0 52%; /* La derecha ocupa el 52% (queda un 8% de margen en el medio) */
+  }
+}
