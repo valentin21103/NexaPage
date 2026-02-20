@@ -1,0 +1,78 @@
+<section class="contacto-section">
+  <div class="contacto-container">
+    
+    <div class="info-column">
+      <span class="section-subtitle">CONTACTO</span>
+      <h2 class="section-title">Empecemos a Trabajar Juntos</h2>
+      <p class="section-description">
+        ¿Listo para llevar tu marca al siguiente nivel? Déjanos tus datos y nos pondremos en contacto a la brevedad.
+      </p>
+
+      <div class="contact-methods-list">
+        <div class="method-item">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </div>
+          <div class="method-details">
+            <h3>Contactanos</h3>
+            <a href="tel:+5493815360881" class="method-link">+54 9 381 5360881</a> <br>
+            <a href="tel:+5493815094945" class="method-link">+54 9 381 5094945</a>
+          </div>
+        </div>
+
+        <div class="method-item">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </div>
+          <div class="method-details">
+            <h3>Instagram</h3>
+            <a href="https://instagram.com/nexa.tuc" target="_blank" class="method-link highlight">&#64;NEXA.TUC</a>
+          </div>
+        </div>
+
+        <div class="method-item">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div class="method-details">
+            <h3>Ubicación</h3>
+            <p class="method-text">San Miguel de Tucumán, Argentina</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-column">
+      <div class="form-card">
+        <form (submit)="sendEmail($event)" class="nexa-form">
+          <div class="form-group">
+            <label for="name">Nombre Completo</label>
+            <input type="text" id="name" name="from_name" [(ngModel)]="form.from_name" required placeholder="Tu nombre">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Teléfono / Celular</label>
+            <input type="tel" id="phone" name="phone_number" [(ngModel)]="form.phone_number" required placeholder="+54 9...">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="reply_to" [(ngModel)]="form.reply_to" required placeholder="nombre&#64;empresa.com">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" [(ngModel)]="form.message" required rows="4" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Enviar Consulta</button>
+          
+          @if (statusMessage) {
+            <p class="status-message" [class.error]="statusMessage.includes('error')">{{ statusMessage }}</p>
+          }
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>

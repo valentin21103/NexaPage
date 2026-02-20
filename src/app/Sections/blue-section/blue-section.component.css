@@ -77,13 +77,29 @@
     position: relative; /* Para poder poner el brillo detrás */
 }
 
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    z-index: 2;
+    cursor: default;
+}
+
+.video-wrapper:hover {
+    cursor: pointer;
+}
+
 .blue-video {
     width: 100%;
+    height: auto;
     max-width: 500px; /* Tamaño máximo del video */
     border-radius: 20px; /* Bordes redondeados */
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Sombra 3D */
-    z-index: 2; /* Para que quede encima del brillo */
+    z-index: 3; /* Para que quede encima del brillo y sea clickeable */
     background-color: #000;
+    display: block;
+    position: relative;
+    pointer-events: auto;
 }
 
 /* El resplandor azul detrás del video */
@@ -96,6 +112,76 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1; /* Detrás del video */
+    pointer-events: none; /* No bloquea los clics */
+}
+
+/* Overlay del botón de play */
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+.play-overlay:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.play-icon-wrapper {
+    margin-bottom: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+.clapperboard-icon {
+    filter: drop-shadow(0 4px 12px rgba(100, 200, 255, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.play-overlay:hover .clapperboard-icon {
+    transform: scale(1.1);
+}
+
+.play-text-container {
+    text-align: center;
+}
+
+.play-text-main {
+    color: #64c8ff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(100, 200, 255, 0.5);
+    margin: 0 0 0.3rem 0;
+    letter-spacing: 0.5px;
+}
+
+.play-text-sub {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
 }
 
 /* --- RESPONSIVE (MÓVIL) --- */

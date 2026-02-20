@@ -1,219 +1,382 @@
 /* ============================================
    CONTENEDOR PRINCIPAL
    ============================================ */
-.Proyectos-Container {
-    background-color: #0d111c; /* Fondo azul oscuro profundo */
-    padding: 5rem 2rem;
-    width: 100%;
+.proyectos-container {
+  background: linear-gradient(180deg, #0a0129 0%, #0d111c 100%);
+  padding: 6rem 2rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
-.P-inner {
-    max-width: 1200px;
-    margin: 0 auto;
+.proyectos-inner {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* ============================================
-   TÍTULOS Y CABECERA
+   HEADER DE LA SECCIÓN
    ============================================ */
-.P-Titulos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 4rem;
+.proyectos-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
 .section-badge {
-    display: inline-block;
-    padding: 0.4rem 1.2rem;
-    background: rgba(0, 210, 255, 0.1);
-    border: 1px solid rgba(0, 210, 255, 0.3);
-    color: #00d2ff;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: rgba(100, 200, 255, 0.1);
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  color: #64c8ff;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 
 .section-title {
-    font-size: 3rem;
-    color: #ffffff;
-    font-weight: 800;
-    margin: 0 0 1rem 0;
+  font-size: 3rem;
+  color: #ffffff;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
 }
 
 .section-subtitle {
-    color: #a0aec0;
-    font-size: 1.1rem;
-    max-width: 700px;
-    line-height: 1.6;
-    margin: 0;
+  color: #b0b0c5;
+  font-size: 1.1rem;
+  max-width: 700px;
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* ============================================
-   GRILLA DE PROYECTOS (LA MAGIA DE CSS GRID)
+   SLIDER DE VIDEOS
    ============================================ */
-.Proyectos {
-    display: grid;
-    /* Esto hace que haya 3 columnas en PC, 2 en Tablet y 1 en Celular automáticamente */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem; /* Espacio entre las tarjetas */
+.video-slider-container {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.video-slider-wrapper {
+  overflow: hidden;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 200, 255, 0.1);
+}
+
+.video-slider {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.video-slide {
+  min-width: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.video-slide.active {
+  opacity: 1;
 }
 
 /* ============================================
-   TARJETAS INDIVIDUALES
+   TARJETA DE VIDEO
    ============================================ */
-.card {
-    background: #ffffff;
-    border-radius: 20px;
-    overflow: hidden; /* Para que la imagen no se salga de las esquinas redondas */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
+.video-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  overflow: hidden;
 }
 
-.card:hover {
-    transform: translateY(-8px); /* Se levanta un poquito al pasar el mouse */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+.video-wrapper {
+  position: relative;
+  background: #000;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
 
-/* Contenedor de la Imagen */
-.card-img-container {
-    width: 100%;
-    height: 220px; /* Alto fijo para todas las fotos */
-    overflow: hidden;
+.project-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Para que la foto se recorte bien sin deformarse */
-    transition: transform 0.5s ease;
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.card:hover .card-img {
-    transform: scale(1.05); /* Efecto zoom sutil en la foto */
+.video-wrapper:hover .video-overlay {
+  opacity: 1;
 }
 
-/* Contenido de texto de la tarjeta */
-/* Contenido de texto de la tarjeta */
-.card-content {
-    padding: 2rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Esto está perfecto, permite que la tarjeta se estire */
-    text-align: left;
+.video-wrapper:not(:hover) .video-overlay {
+  opacity: 0;
 }
 
-.card-tag {
-    align-self: flex-start;
-    background: #e0f2fe;
-    color: #0284c7;
-    padding: 0.3rem 0.8rem;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 0.8rem; /* Redujimos este margen para que esté más cerca del título */
+.play-indicator {
+  animation: pulse 2s infinite;
 }
 
-.card-title {
-    font-size: 1.3rem;
-    color: #1a202c; 
-    font-weight: 800;
-    /* Redujimos el margen inferior drásticamente para pegarlo a la descripción */
-    margin: 0 0 0.4rem 0; 
-    line-height: 1.3;
-    /* ELIMINAMOS el min-height, display: flex y align-items que generaban el hueco fantasma */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
 }
 
-.card-desc {
-    color: #4a5568; 
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0; /* Quitamos el margen inferior para no sumar espacios extra innecesarios */
-    
-    /* Mantenemos el límite de líneas para que se vea prolijo */
-    display: -webkit-box;
-    -webkit-line-clamp: 3; 
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+.video-wrapper.placeholder {
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-content {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.placeholder-content p {
+  margin-top: 1rem;
+  font-size: 1rem;
 }
 
 /* ============================================
-   CONTENEDOR DE ACCIONES (BOTONES/LINKS) AL FINAL DE LA TARJETA
+   INFORMACIÓN DEL VIDEO
    ============================================ */
-.card-actions {
-    /* ESTA ES LA CLAVE: Al poner esto, TODO el espacio vacío que sobra en la tarjeta 
-       se coloca por encima del botón, dejándolo anclado al fondo y manteniendo 
-       el título y la descripción pegaditos arriba. */
-    margin-top: auto; 
-    padding-top: 1.5rem; /* Le damos un respiro visual solo por encima del botón */
-    display: flex;
-    align-items: center; 
-}
-/* ============================================
-   BOTÓN / ENLACE (CON FORMA DE BOTÓN REAL)
-   ============================================ */
-.card-link {
-    text-decoration: none;
-    color: #ffffff; /* Texto blanco para resaltar sobre el fondo azul */
-    background-color: #3b82f6; /* Fondo azul brillante */
-    font-weight: 600;
-    font-size: 0.95rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center; /* Centra el texto dentro del botón */
-    gap: 0.5rem; 
-    padding: 0.6rem 1.2rem; /* Relleno para darle cuerpo al botón */
-    border-radius: 8px; /* Bordes redondeados */
-    border: 1px solid #3b82f6; /* Borde del mismo color que el fondo */
-    transition: all 0.3s ease; /* Transición suave para todos los cambios */
-    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2); /* Sombra sutil azul */
+.video-info {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
 }
 
-/* Estilo al pasar el mouse */
-.card-link:hover {
-    background-color: #1d4ed8; /* Azul más oscuro al hacer hover */
-    border-color: #1d4ed8;
-    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3); /* Sombra un poco más pronunciada */
-    transform: translateY(-2px); /* Pequeño salto hacia arriba */
+.video-tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(100, 200, 255, 0.15);
+  color: #64c8ff;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(100, 200, 255, 0.3);
 }
 
-/* Animación de la flechita (si la usas) */
-.card-link span {
-    transition: transform 0.3s ease;
+.video-title {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
 }
 
-.card-link:hover span {
-    transform: translateX(5px); /* Solo la flecha se mueve a la derecha */
+.video-description {
+  color: #b0b0c5;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
 }
 
 /* ============================================
-   ESTILOS ESPECIALES PARA "PRÓXIMAMENTE"
+   ESTADÍSTICAS DEL VIDEO
    ============================================ */
-.tag-disabled {
-    background-color: #f1f5f9; /* Fondo gris muy clarito */
-    color: #64748b; /* Texto grisáceo */
-    border: 1px dashed #cbd5e1; /* Bordecito punteado para indicar que no está activo */
-    padding: 0.6rem 1.2rem; /* El mismo padding que el botón normal */
-    border-radius: 8px; /* El mismo radio de borde */
-    font-size: 0.95rem; /* El mismo tamaño de letra */
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: default;
-    pointer-events: none; /* No se puede hacer clic */
+.video-stats {
+  display: flex;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #64c8ff;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #b0b0c5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* ============================================
-   RESPONSIVE AJUSTES EXTRA
+   CONTROLES DEL SLIDER
    ============================================ */
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.slider-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(100, 200, 255, 0.3);
+  background: rgba(100, 200, 255, 0.1);
+  color: #64c8ff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.slider-btn:hover {
+  background: rgba(100, 200, 255, 0.2);
+  border-color: rgba(100, 200, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.slider-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.slider-dots {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(100, 200, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #64c8ff;
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+}
+
+/* ============================================
+   SECCIÓN DE EMPRESAS
+   ============================================ */
+.companies-section {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.companies-title {
+  color: #b0b0c5;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+}
+
+.companies-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+
+.company-logo {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.company-logo:hover {
+  color: #64c8ff;
+  border-color: rgba(100, 200, 255, 0.3);
+  background: rgba(100, 200, 255, 0.05);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .video-card {
+    grid-template-columns: 1fr;
+  }
+
+  .video-info {
+    padding: 2rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
 @media (max-width: 768px) {
-    .section-title {
-        font-size: 2.2rem;
-    }
+  .proyectos-container {
+    padding: 4rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .video-title {
+    font-size: 1.5rem;
+  }
+
+  .video-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .slider-controls {
+    gap: 1rem;
+  }
+
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+  }
 }

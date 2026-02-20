@@ -1,0 +1,87 @@
+<section class="quote-section">
+  <div class="quote-container">
+    
+    <div class="quote-header text-center">
+      <h2 class="quote-title">Configuremos tu Proyecto</h2>
+      <p class="quote-desc">Completá este breve formulario para que nuestros especialistas analicen tu caso y te envíen una propuesta exacta sin compromiso.</p>
+    </div>
+
+    <div class="checkout-grid">
+      
+   <div class="order-summary">
+        <button type="button" (click)="volverAtras()" class="btn-back">
+          ← Volver a los servicios
+        </button>
+
+        <h3 class="summary-title">Resumen de Solicitud</h3>
+        
+        <div class="selected-item-card">
+          <div class="item-badge">{{ tipoServicio }}</div>
+          <h4 class="item-name">{{ planSeleccionado }}</h4>
+          <p class="item-note">El precio final puede ajustarse según los requerimientos específicos de tu marca.</p>
+          
+          <div class="price-estimate">
+            <span class="estimate-label">Inversión base estimada:</span>
+            <div class="estimate-value">
+              <span class="currency" *ngIf="precioReferencia !== 'A cotizar'">$</span>
+              {{ precioReferencia }} 
+              <span class="period" *ngIf="precioReferencia !== 'A cotizar'">/mes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="trust-badges">
+          <div class="badge-item">
+            <span>🛡️</span> 100% Confidencial
+          </div>
+          <div class="badge-item">
+            <span>⚡</span> Respuesta en 24hs
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-form-container">
+       <form (submit)="enviarSolicitud($event)" #quoteForm="ngForm" class="custom-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre Completo *</label>
+              <input type="text" placeholder="Ej: Juan Pérez" required [(ngModel)]="formData.nombre" name="nombre">
+            </div>
+            <div class="form-group">
+              <label>Empresa / Marca</label>
+              <input type="text" placeholder="Nombre de tu negocio" [(ngModel)]="formData.empresa" name="empresa">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email Corporativo *</label>
+              <input type="email" placeholder="juan@empresa.com" required [(ngModel)]="formData.email" name="email">
+            </div>
+            <div class="form-group">
+              <label>WhatsApp *</label>
+              <input type="tel" placeholder="+54 9 381..." required [(ngModel)]="formData.telefono" name="telefono">
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Contanos sobre tu proyecto *</label>
+            <textarea rows="4" placeholder="¿Cuáles son tus objetivos? ¿Tenés página web o redes actuales? ¿Qué tipo de funcionalidad o diseño estás buscando?" required [(ngModel)]="formData.detalles" name="detalles"></textarea>
+          </div>
+
+      <button type="submit" class="btn-submit-quote" [disabled]="!quoteForm.valid">
+            Solicitar Presupuesto Exacto
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+          
+          <p class="form-disclaimer">Tus datos están seguros. No enviamos spam.</p>
+
+          <p *ngIf="statusMessage" class="status-message" [class.error]="statusMessage.includes('error')" style="text-align: center; margin-top: 1rem; font-weight: bold;">
+            {{ statusMessage }}
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>

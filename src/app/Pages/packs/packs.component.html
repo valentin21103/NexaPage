@@ -1,0 +1,177 @@
+<section class="packs-section" id="packs">
+  <div class="packs-container">
+
+    <div class="toggle-wrapper">
+      <span class="toggle-label cursor-pointer" 
+            [class.active]="!mostrarIndividuales" 
+            (click)="mostrarIndividuales = false">
+        Packs Completos
+      </span>
+      
+      <div class="switch-custom" (click)="cambiarVista()">
+        <div class="slider-custom" [class.encendido]="mostrarIndividuales"></div>
+      </div>
+      
+      <span class="toggle-label cursor-pointer" 
+            [class.active]="mostrarIndividuales" 
+            (click)="mostrarIndividuales = true">
+        Servicios Individuales
+      </span>
+    </div>
+
+    <div *ngIf="!mostrarIndividuales">
+      <div class="packs-header">
+        <span class="section-subtitle">NUESTROS PACKS</span>
+        <h2 class="section-title">Soluciones a tu Medida</h2>
+        <p class="section-description">
+          Elegí el plan que mejor se adapte a los objetivos de comunicación de tu empresa. Todos incluyen supervisión, seguimiento y trabajo conjunto.
+        </p>
+      </div>
+
+      <div class="packs-grid">
+        <div class="pack-card">
+          <h3 class="pack-name">Pack Inicial</h3>
+          <p class="pack-desc">Ideal para PyMEs que inician su presencia digital profesional.</p>
+          <div class="pack-price">
+            <span class="currency">$</span>300.000 <span class="period"></span>
+          </div>
+          <ul class="pack-features">
+            <li>✓ 4 Reels mensuales</li>
+            <li>✓ 8 Publicaciones en feed</li>
+            <li>✓ 8 Historias mensuales</li>
+            <li>✓ Community Manager</li>
+            <li>✓ Producción de contenido</li>
+            <li>✓ Informe mensual</li>
+          </ul>
+          <button [routerLink]="['/checkout']" [queryParams]="{ plan: 'Pack Inicial', precio: '300.000', tipo: 'Pack Completo' }" class="btn-pack-outline">Contratar Pack</button>
+        </div>
+
+        <div class="pack-card popular">
+          <div class="popular-badge">MÁS POPULAR</div>
+          <h3 class="pack-name">Pack Crecimiento</h3>
+          <p class="pack-desc">Para empresas que buscan expandir su alcance con contenido dinámico.</p>
+          <div class="pack-price highlight">
+            <span class="currency">$</span>600.000 <span class="period"></span>
+          </div>
+          <ul class="pack-features">
+            <li>✓ 8 Reels mensuales</li>
+            <li class="feature-highlight">🚀 1 Reel con servicio de DRON</li>
+            <li class="feature-highlight">💻  Sitio Web personalizado</li>
+            <li>✓ 12 Publicaciones en feed</li>
+            <li>✓ 12 Historias mensuales</li>
+            <li>✓ Community Manager</li>
+            <li>✓ Producción de contenido</li>
+            <li>✓ Informe mensual</li>
+          </ul>
+          <button [routerLink]="['/checkout']" [queryParams]="{ plan: 'Pack Crecimiento', precio: '600.000', tipo: 'Pack Completo' }" class="btn-pack-gradient">Contratar Pack</button>
+        </div>
+
+        <div class="pack-card">
+          <h3 class="pack-name">Pack Corporativo</h3>
+          <p class="pack-desc">Solución integral para máxima visibilidad y calidad cinematográfica.</p>
+          <div class="pack-price highlight-cyan">
+            <span class="currency">$</span>1.000.000 <span class="period"></span>
+          </div>
+          <ul class="pack-features">
+            <li>✓ 12 Reels mensuales</li>
+            <li class="feature-highlight">🚀 3 Reels con servicio de DRON</li>
+            <li class="feature-highlight">💻  Sitio Web/Sistema personalizado</li>
+            <li>✓ 16 Publicaciones en feed</li>
+            <li>✓ 16 Historias mensuales</li>
+            <li>✓ Community Manager</li>
+            <li>✓ Producción de contenido</li>
+            <li>✓ Informe mensual</li>
+          </ul>
+          <button [routerLink]="['/checkout']" [queryParams]="{ plan: 'Pack Corporativo', precio: '1.000.000', tipo: 'Pack Completo' }" class="btn-pack-outline">Contratar Pack</button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="mostrarIndividuales">
+      <div class="packs-header">
+        <span class="section-subtitle">A LA CARTA</span>
+        <h2 class="section-title">Servicios Individuales</h2>
+        <p class="section-description">
+          Soluciones específicas para necesidades puntuales. Potenciá áreas clave de tu negocio con nuestra experiencia enfocada.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card neon-cyan">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          </div>
+          <h3 class="service-title">Marketing Digital & Social Media</h3>
+          <div class="hover-content">
+            <p class="service-desc">Estrategias de ads, gestión de comunidades y posicionamiento de marca.</p>
+            <button routerLink="/checkout" [queryParams]="{ plan: 'Marketing Digital & Social Media', precio: 'A cotizar', tipo: 'Servicio Individual' }" class="btn-service-select">Elegir Servicio</button>
+          </div>
+        </div>
+
+        <div class="service-card neon-purple">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/><path d="M12 22V12"/><path d="m17 8 3.3-2.6a.9.9 0 1 0-1.1-1.4L16 6.5"/><path d="m7 8-3.3-2.6a.9.9 0 1 1 1.1-1.4L8 6.5"/></svg>
+          </div>
+          <h3 class="service-title">Producción Audiovisual & Drones</h3>
+          <div class="hover-content">
+            <p class="service-desc">Tomas aéreas 4K y edición cinematográfica para alto impacto visual.</p>
+            <button routerLink="/checkout" [queryParams]="{ plan: 'Producción Audiovisual & Drones', precio: 'A cotizar', tipo: 'Servicio Individual' }" class="btn-service-select">Elegir Servicio</button>
+          </div>
+        </div>
+
+        <div class="service-card neon-cyan">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.5 8.6L4.2 15.3 2 2z"/><path d="M6 8.8L11.8 3"/></svg>
+          </div>
+          <h3 class="service-title">Diseño Gráfico e Identidad</h3>
+          <div class="hover-content">
+            <p class="service-desc">Branding, cartelería digital y diseño publicitario que destaca.</p>
+            <button routerLink="/checkout" [queryParams]="{ plan: 'Diseño Gráfico e Identidad', precio: 'A cotizar', tipo: 'Servicio Individual' }" class="btn-service-select">Elegir Servicio</button>
+          </div>
+        </div>
+
+        <div class="service-card neon-purple">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="service-title">Desarrollo Web a Medida</h3>
+          <div class="hover-content">
+            <p class="service-desc">Sitios institucionales, e-commerce y sistemas web de alto rendimiento.</p>
+            <button routerLink="/checkout" [queryParams]="{ plan: 'Desarrollo Web a Medida', precio: 'A cotizar', tipo: 'Servicio Individual' }" class="btn-service-select">Elegir Servicio</button>
+          </div>
+        </div>
+
+        <div class="service-card neon-cyan">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+          </div>
+          <h3 class="service-title">Organización de Eventos</h3>
+          <div class="hover-content">
+            <p class="service-desc">Cobertura integral, streaming y logística para eventos corporativos.</p>
+            <button routerLink="/checkout" [queryParams]="{ plan: 'Organización de Eventos', precio: 'A cotizar', tipo: 'Servicio Individual' }" class="btn-service-select">Elegir Servicio</button>
+          </div>
+        </div>
+
+        <div class="service-card coming-soon">
+          <div class="badge-coming-soon">PRÓXIMAMENTE</div>
+          <div class="card-icon inactive">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
+          </div>
+          <h3 class="service-title">Agente Virtual con IA</h3>
+          <div class="hover-content">
+            <p class="service-desc">Atención al cliente automatizada e inteligente 24/7.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="custom-plan-banner">
+      <div class="banner-content">
+        <h3>¿Necesitas algo más específico?</h3>
+        <p>Armamos una estrategia integral y un presupuesto a la medida exacta de tu marca.</p>
+      </div>
+      <a routerLink="/contacto" class="btn-banner">Contactanos para un presupuesto personalizado →</a>
+    </div>
+
+  </div>
+</section>

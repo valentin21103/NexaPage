@@ -1,244 +1,250 @@
 .hero {
-    min-height: calc(100vh - 80px); /* ajusta según alto del header */
-    display: flex;
-    align-items: center;
-    background-image: url('/imagenes/BlueCaminandoo.png');
-    width: auto;
-    height: auto;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
+  min-height: calc(100vh - 80px); 
+  display: flex;
+  align-items: center;
+  background-image: url('/imagenes/BlueCaminandoo.png');
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 4rem 1.5rem; /* Padding base para celular */
+}
   
-  .hero-inner {
-    max-width: 100%; 
-    width: 100%;
-    
-    margin: 0 auto;
-    
-    /* 2. ELIMINA el padding derecho. 
-       padding: 3rem 0 3rem 5rem; -> Arriba, Derecha(0), Abajo, Izquierda */
-    padding: 1rem 0 3rem 12%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-  }
+.hero-inner {
+  max-width: 1200px; 
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; /* Celular por defecto */
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
 
-  .hero-media{
-    display: flex;
-    justify-content: flex-end;
-    margin-left: auto;
-    padding: 5rem 0rem 3rem 6rem;
+@media (min-width: 992px) {
+  .hero {
+    padding: 0; /* Limpiamos en PC */
   }
-  
+  .hero-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem 5%;
+  }
+}
+
+.hero-content {
+  flex: 1 1 auto;
+  max-width: 650px;
+  text-align: center; /* Centrado en celular */
+}
+
+@media (min-width: 992px) {
   .hero-content {
-    flex: 1 1 auto;
-    max-width: 650px;
+    text-align: left; /* Alineado a la izquierda en PC */
   }
+}
   
-  .hero-badge {
+.hero-badge {
   display: inline-flex;
   align-items: center;
-  
-  /* Ajuste de tamaños para que se vea más "botón" */
   padding: 0.4rem 1.2rem;
   border-radius: 999px;
-  
-  font-size: 1rem;
-  font-weight: 700; /* Letra más gordita */
+  font-size: 0.9rem; /* Un toque más chico en celular */
+  font-weight: 700;
   letter-spacing: 0.02em;
-  
-  /* EL COLOR CIAN NEÓN */
   color: #00d2ff; 
-  background: rgba(0, 210, 255, 0.1); /* Fondo muy sutil */
-  border: 1px solid #00d2ff; /* Borde sólido, no transparente */
-  
+  background: rgba(0, 210, 255, 0.1); 
+  border: 1px solid #00d2ff; 
   margin-bottom: 1.2rem;
-  
-  /* Esto separa el texto del puntito que vamos a crear */
   gap: 0.6rem; 
-  
-  /* Opcional: Un brillo suave para que parezca luz */
   box-shadow: 0 0 15px rgba(0, 210, 255, 0.15);
 }
 
-/* ESTO CREA EL PUNTITO RELLENO A LA IZQUIERDA */
 .hero-badge::before {
-  content: ''; /* Necesario para que aparezca */
+  content: ''; 
   display: block;
-  width: 10px;  /* Tamaño del punto */
+  width: 10px; 
   height: 10px;
-  background-color: #00d2ff; /* Color relleno */
-  border-radius: 50%; /* Lo hace redondo */
-  box-shadow: 0 0 6px #00d2ff; /* Hace que el puntito brille */
+  background-color: #00d2ff; 
+  border-radius: 50%; 
+  box-shadow: 0 0 6px #00d2ff; 
 }
   
-  .hero-title {
-    font-size: 3.8rem;
-    line-height: 1.1;
-    color: #ffffff;
-    margin: 0 0 0.8rem;
-    font-weight: 800;
-  }
+.hero-title {
+  font-size: 2.8rem; /* Letra ajustada para celular */
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0 0 0.8rem;
+  font-weight: 800;
+}
   
-  .hero-title span {
-  display: inline-block; /* Mejor que inline para transformaciones */
-  font-size: 4rem; /* Un pelín más grande para destacar */
-  font-weight: 900; /* Extra gordo (Black) */
-  
-  /* EL EFECTO DE LUCES DE LA IMAGEN */
+.hero-title span {
+  display: inline-block; 
+  font-size: 3.2rem; /* Ajustado para celular */
+  font-weight: 900; 
   color: #0845d3; 
-  
-  /* Borde sutil para definir la letra */
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); 
-  
-  /* La magia: Múltiples sombras para crear el halo de luz */
   text-shadow: 
-    0 0 10px rgba(0, 210, 255, 0.8),   /* Luz Cian cercana */
-    0 0 30px rgba(0, 210, 255, 0.6),   /* Luz Cian media */
-    0 0 60px rgba(184, 4, 255, 0.5);   /* Luz Morada lejana */
-    
-  white-space: nowrap; /* Obliga a no romper la línea */
+    0 0 10px rgba(0, 210, 255, 0.8),  
+    0 0 30px rgba(0, 210, 255, 0.6),  
+    0 0 60px rgba(184, 4, 255, 0.5); 
+}
+
+@media (min-width: 992px) {
+  .hero-title { font-size: 3.8rem; }
+  .hero-title span { font-size: 4rem; }
 }
   
+.hero-subtitle {
+  color: #e2e8f0;
+  max-width: 32rem;
+  margin: 0 auto 1.8rem auto; /* Centrado */
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 992px) {
   .hero-subtitle {
-    color: #ffffff;
-    max-width: 32rem;
-    margin: 0 0 1.8rem;
-    font-size: 1.5rem;
-  }
-  
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .btn {
-    border: none;
-    cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 800;
-    text-decoration: none;
-    border-radius: 999px;
-    padding: 0.75rem 1.7rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    display: inline-block;
-  }
-  
-  .btn-VerPacks {
-    background: linear-gradient(90deg, #4a90e2, #9b59b6);
-    color: #ffffff;
-    box-shadow: 0 10px 25px rgba(74, 144, 226, 0.35);
-  }
-  
-  .btn-VerPacks:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 14px 30px rgba(74, 144, 226, 0.45);
-  }
-  
-  .btn-VerServicios {
-    background: transparent;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-  }
-  
-  .btn-VerServicios:hover {
-    background: rgba(255, 255, 255, 0.06);
-  }
-  
-  .hero-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2.5rem;
-  }
-  
-  .stat {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .stat-value {
-    color: #fdfdfd ;
-    font-weight: 700;
+    margin: 0 0 1.8rem 0; /* Vuelve a la izquierda en PC */
     font-size: 1.3rem;
   }
-
-  .stat:nth-child(1) .stat-value {
-    color: #00d2ff; 
-    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
-  }
-  .stat:nth-child(2) .stat-value {
-    color: #cd72ee;
-    text-shadow: 0 0 10px rgba(199, 71, 245, 0.5);
-}
-
-.stat:nth-child(3) .stat-value {
-    color: #713fe7;
-    text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
 }
   
-  .stat-label {
-    color: #b5b5f8;
-    font-size: 0.85rem;
+.hero-actions {
+  display: flex;
+  flex-direction: column; /* Botones apilados en celular */
+  gap: 1rem;
+  margin-bottom: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 576px) {
+  .hero-actions {
+    flex-direction: row;
+    justify-content: center;
   }
+}
+
+@media (min-width: 992px) {
+  .hero-actions {
+    justify-content: flex-start;
+  }
+}
   
-  /* Columna derecha: placeholder del celular */
+.btn {
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.8rem 2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  display: inline-block;
+  width: 100%; /* Ancho completo en celular */
+  text-align: center;
+}
+
+@media (min-width: 576px) {
+  .btn { width: auto; }
+}
+  
+.btn-VerPacks {
+  background: linear-gradient(90deg, #4a90e2, #9b59b6);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(74, 144, 226, 0.35);
+}
+  
+.btn-VerPacks:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(74, 144, 226, 0.45);
+}
+  
+.btn-VerServicios {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+  
+.btn-VerServicios:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+  
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media (min-width: 992px) {
+  .hero-stats { justify-content: flex-start; }
+}
+  
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+  
+.stat-value {
+  color: #fdfdfd;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.stat:nth-child(1) .stat-value { color: #00d2ff; text-shadow: 0 0 10px rgba(0, 210, 255, 0.5); }
+.stat:nth-child(2) .stat-value { color: #cd72ee; text-shadow: 0 0 10px rgba(199, 71, 245, 0.5); }
+.stat:nth-child(3) .stat-value { color: #00ff9d; text-shadow: 0 0 10px rgba(0, 255, 157, 0.5); }
+  
+.stat-label {
+  color: #b5b5f8;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+  
+/* ============================================
+   ESTILOS PARA EL VIDEO DEL HERO (RESPONSIVO)
+   ============================================ */
+.hero-media {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
   .hero-media {
-    flex: 1 1 45%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    order: -1; /* Pone el video arriba de todo en celulares */
+    margin-bottom: 2rem;
   }
-  
-  .phone-placeholder {
-    width: 280px;
-    height: 480px;
-    border-radius: 32px;
-    background: radial-gradient(circle at top, #4a90e2, #160b3a);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
+}
+
+.video-mockup-container {
+  position: relative;
+  width: 80%; /* Ancho en celular */
+  max-width: 280px; 
+  aspect-ratio: 9 / 16; /* Formato vertical perfecto */
+  border-radius: 30px; 
+  overflow: hidden; 
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); 
+  background-color: #0f172a; 
+  border: 8px solid #1e293b; /* El "marco" del teléfono */
+}
+
+@media (min-width: 992px) {
+  .video-mockup-container {
+    width: 100%;
+    max-width: 320px; /* Un poco más grande en PC */
   }
-  
-  .phone-label {
-    color: #f5f5ff;
-    font-size: 0.9rem;
-    text-align: center;
-    padding: 0 1rem;
-    opacity: 0.85;
-  }
-  
-  /* Responsive */
-  @media (max-width: 992px) {
-    .hero-inner {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .hero-content {
-      max-width: none;
-    }
-  
-    .hero-actions,
-    .hero-stats {
-      justify-content: center;
-    }
-  
-    .hero-title {
-      font-size: 2.3rem;
-    }
-  
-    .hero-title span {
-      font-size: 2.5rem;
-    }
-  
-    .hero-media {
-      order: -1;
-    }
-  }
+}
+
+.video-mockup-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Evita que el usuario pause el video al tocarlo */
+}

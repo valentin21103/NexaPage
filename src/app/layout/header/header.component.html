@@ -8,12 +8,11 @@
     <!-- Navegación -->
     <nav class="nav-container">
       <a href="/" class="nav-link">Inicio</a>
-      <a href="/servicios" class="nav-link">Servicios</a>
-      <a href="/packs" class="nav-link">Packs</a>
-      <a href="/nosotros" class="nav-link">Nosotros</a>
-      <a href="/contacto" class="nav-link">Contacto</a>
-      <button class="agendar-btn">Agendar Cita</button>
-
+      <a [routerLink]="['/']" fragment="proyectos" class="nav-link">Nuestro Trabajo</a>
+      <a [routerLink]="['/']" fragment="servicios" class="nav-link">Servicios</a>
+      <a routerLink="/sobre-nosotros" class="nav-link">Nosotros</a>
+      <a routerLink="/contacto" class="nav-link">Contactanos</a>
+      <a [routerLink]="['/packs']" class="agendar-btn">Agendar Cita</a>
     </nav>
 
  

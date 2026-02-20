@@ -1,108 +1,143 @@
-<section class="Proyectos-Container">
-    <div class="P-inner">
-        
-        <div class="P-Titulos">
-            <div class="section-badge">
-                PROYECTOS DESTACADOS
-            </div>
-            <h2 class="section-title">Nuestros Servicios en Acción</h2>
-            <p class="section-subtitle">
-                Explora la variedad de soluciones que ofrecemos. Cada servicio está diseñado para impulsar tu marca al siguiente nivel.
-            </p>
-        </div>
-
-        <div class="Proyectos">
-            
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="/imagenes/tu-imagen-1.jpg" alt="Marketing Digital" class="card-img">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag">Marketing</span>
-                    <h3 class="card-title">Marketing Digital & Social Media</h3>
-                    <p class="card-desc">"Creamos estrategias basadas en datos para escalar tu presencia digital para conectar con tu audiencia."</p>
-                    <div class="card-actions">
-                        <a href="/servicios" class="card-link">Ver Servicio</a>
-                    </div>
-                </div>
-            </div>
-
-              
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="/imagenes/tu-imagen-1.jpg" alt="Marketing Digital" class="card-img">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag">Drones</span>
-                    <h3 class="card-title">Produccion Audiovisual con Drone</h3>
-                    <p class="card-desc">"Creacion de Contenido Visual de Alta Calidad con Drone"</p>
-                     <div class="card-actions">
-                        <a href="/servicios" class="card-link">Ver Servicio</a>
-                    </div>
-                </div>
-            </div>
-
-              
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="/imagenes/tu-imagen-1.jpg" alt="Marketing Digital" class="card-img">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag">Diseño Grafico</span>
-                    <h3 class="card-title">Diseño Grafico</h3>
-                    <p class="card-desc">"Identidades visuales magnéticas y diseño integral que garantizan destacar frente a la competencia."</p>
-                     <div class="card-actions">
-                        <a href="/servicios" class="card-link">Ver Servicio</a>
-                    </div>
-                </div>
-            </div>
-
-              
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="/imagenes/tu-imagen-1.jpg" alt="Marketing Digital" class="card-img">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag">Programacion</span>
-                    <h3 class="card-title">Desarrollo Paginas Web & Sistemas a Medida</h3>
-                    <p class="card-desc">"Plataformas ágiles y soluciones tecnológicas a medida diseñadas para optimizar recursos."</p>
-                     <div class="card-actions">
-                        <a href="/servicios" class="card-link">Ver Servicio </a>
-                    </div>
-                </div>
-            </div>
-
-              
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="/imagenes/tu-imagen-1.jpg" alt="Marketing Digital" class="card-img">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag">Eventos</span>
-                    <h3 class="card-title">Organizacion de Eventos</h3>
-                    <p class="card-desc">"Diseño y ejecución impecable de eventos corporativos y sociales. Cuidamos cada detalle para crear experiencias inolvidables."</p>
-                     <div class="card-actions">
-                        <a href="/servicios" class="card-link">Ver Servicio </a>
-                    </div>
-                </div>
-            </div>
-
-            
-
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="/imagenes/tu-imagen-2.jpg" alt="Producción Audiovisual" class="card-img">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag">IA</span>
-                    <h3 class="card-title">Agente Virtual /Automatizacion Inteligente</h3>
-                    <p class="card-desc">"El futuro de la atención al cliente. Asistentes entrenados con IA para optimizar procesos y escalar tus ventas 24/7."</p>
-                    <div class="card-actions">
-                        <span class="tag-disabled">Próximamente</span>
-                    </div>
-                </div>
-            </div>
-
-            </div>
+<section id="proyectos" class="proyectos-container">
+  <div class="proyectos-inner">
+    
+    <!-- Títulos de la sección -->
+    <div class="proyectos-header">
+      <div class="section-badge">
+        CASOS DE ÉXITO
+      </div>
+      <h2 class="section-title">Nuestros Trabajos en Acción</h2>
+      <p class="section-subtitle">
+        Descubre cómo transformamos la presencia digital de empresas líderes. 
+        Cada proyecto refleja nuestra experiencia y compromiso con la excelencia.
+      </p>
     </div>
+
+    <!-- Slider de Videos -->
+    <div class="video-slider-container">
+      <div class="video-slider-wrapper">
+        <div class="video-slider" #slider>
+          
+          <!-- Video 1: Pintureria Saenz Peña -->
+          <div class="video-slide active">
+            <div class="video-card">
+              <div class="video-wrapper">
+                <video 
+                  #projectVideo
+                  class="project-video"
+                  controls
+                  preload="auto"
+                  muted
+                  loop
+                  playsinline>
+                  <source src="/Videos/PintureriaSaensMark.mp4" type="video/mp4">
+                  Tu navegador no soporta el elemento de video.
+                </video>
+                <div class="video-overlay">
+                  <div class="play-indicator">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                      <circle cx="30" cy="30" r="30" fill="rgba(255, 255, 255, 0.9)"/>
+                      <path d="M24 18L24 42L42 30L24 18Z" fill="#4a90e2"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="video-info">
+                <span class="video-tag">Marketing Digital</span>
+                <h3 class="video-title">Pinturería Saenz Peña</h3>
+                <p class="video-description">
+                  Estrategia integral de marketing digital que elevó la presencia online 
+                  y aumentó el engagement de la marca en redes sociales.
+                </p>
+                <div class="video-stats">
+                  <div class="stat-item">
+                    <span class="stat-value">+250%</span>
+                    <span class="stat-label">Alcance</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-value">+180%</span>
+                    <span class="stat-label">Interacciones</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 2: Ceraminort -->
+          <div class="video-slide">
+            <div class="video-card">
+              <div class="video-wrapper">
+                <video 
+                  #projectVideo
+                  class="project-video"
+                  controls
+                  preload="auto"
+                  muted
+                  loop
+                  playsinline>
+                  <source src="/Videos/VasosNancy.mp4" type="video/mp4">
+                  Tu navegador no soporta el elemento de video.
+                </video>
+                <div class="video-overlay">
+                  <div class="play-indicator">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                      <circle cx="30" cy="30" r="30" fill="rgba(255, 255, 255, 0.9)"/>
+                      <path d="M24 18L24 42L42 30L24 18Z" fill="#4a90e2"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="video-info">
+                <span class="video-tag">Marketing Digital</span>
+                <h3 class="video-title">Ceraminort</h3>
+                <p class="video-description">
+                  Campaña de marketing digital que potenció la visibilidad de la marca 
+                  y generó un crecimiento significativo en su presencia online.
+                </p>
+                <div class="video-stats">
+                  <div class="stat-item">
+                    <span class="stat-value">+200%</span>
+                    <span class="stat-label">Alcance</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-value">+150%</span>
+                    <span class="stat-label">Interacciones</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Controles del Slider -->
+      <div class="slider-controls">
+        <button class="slider-btn prev" (click)="previousSlide()" aria-label="Anterior">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="slider-dots">
+          <span class="dot active" (click)="goToSlide(0)"></span>
+          <span class="dot" (click)="goToSlide(1)"></span>
+        </div>
+        <button class="slider-btn next" (click)="nextSlide()" aria-label="Siguiente">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Logos de empresas (opcional) -->
+    <div class="companies-section">
+      <p class="companies-title">Empresas que confían en nosotros</p>
+      <div class="companies-logos">
+        <div class="company-logo">Pinturería Saenz Peña</div>
+        <div class="company-logo">Ceraminort</div>
+      </div>
+    </div>
+
+  </div>
 </section>

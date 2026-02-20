@@ -22,12 +22,33 @@
 
         <div class="blue-media">
             <div class="video-wrapper">
-                <video controls poster="/ruta-a-tu-imagen-de-blue.jpg">
-                    <source src="/ruta-a-tu-video.mp4" type="video/mp4">
+                <video 
+                    #blueVideo
+                    class="blue-video"
+                    controls
+                    preload="metadata"
+                    playsinline
+                    (play)="onVideoPlay()"
+                    (pause)="onVideoPause()">
+                    <source src="/Videos/Bluee.mp4" type="video/mp4">
                     Tu navegador no soporta videos.
                 </video>
                 <div class="video-glow"></div>
+                <div class="play-overlay" *ngIf="showPlayButton" (click)="playVideo()">
+                    <div class="play-icon-wrapper">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" class="clapperboard-icon">
+                            <rect x="10" y="15" width="40" height="30" fill="#000" stroke="#fff" stroke-width="2"/>
+                            <line x1="10" y1="25" x2="50" y2="25" stroke="#fff" stroke-width="2"/>
+                            <line x1="10" y1="35" x2="50" y2="35" stroke="#fff" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="play-text-container">
+                        <p class="play-text-main">Haz clic aquí</p>
+                        <p class="play-text-sub">para ver a Blue en acción</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
+

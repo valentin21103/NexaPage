@@ -1,0 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+/* Esto hace que al saltar a un ID, se detenga 100px antes para que el Header no lo tape */
+[id] {
+  scroll-margin-top: 100px; 
+}

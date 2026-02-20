@@ -1,0 +1,178 @@
+.contacto-section {
+  background-color: #0b1120; /* Azul noche premium */
+  color: #ffffff;
+  padding: 4rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.contacto-container {
+  max-width: 1100px; /* Reducimos un poco para que sea más elegante */
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr; /* Móvil: una sola columna */
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Escritorio: Proporciones equilibradas */
+@media (min-width: 992px) {
+  .contacto-container {
+    grid-template-columns: 1fr 1.1fr; /* Casi iguales para mejor equilibrio */
+    gap: 6rem;
+  }
+}
+
+/* --- TEXTO IZQUIERDA (EQUILIBRIO DE TAMAÑOS) --- */
+.section-subtitle {
+  color: #3b82f6;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 2.75rem); /* Tamaño dinámico pero controlado */
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+.section-description {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+/* LISTA DE CONTACTO MÁS COMPACTA */
+.contact-methods-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.method-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.icon-box {
+  width: 45px;
+  height: 45px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.method-details h3 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  color: #f1f5f9;
+}
+
+.method-link, .method-text {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.method-link.highlight {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* --- FORMULARIO PREMIUM --- */
+.form-card {
+  background-color: #161e2e; /* Un tono más claro que el fondo para contraste */
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 0.6rem;
+}
+
+input, textarea {
+  width: 100%;
+  background-color: #0b1120;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  color: white;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #0f172a;
+}
+
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 1rem;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .contacto-section {
+    padding: 2rem 1rem;
+  }
+  
+  .form-card {
+    padding: 1.5rem;
+  }
+  
+  .section-title {
+    text-align: center;
+  }
+  
+  .section-description {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .method-item {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
