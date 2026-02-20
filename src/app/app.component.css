@@ -5,3 +5,23 @@ html {
 [id] {
   scroll-margin-top: 100px; 
 }
+
+/* ========================================================
+   RESETEO GLOBAL (Evita que la página se rompa en móviles)
+   ======================================================== */
+
+/* 1. Hace que los paddings y bordes no agranden los elementos */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Bloquea el scroll horizontal y pinta el fondo general oscuro */
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden; /* ¡ESTA ES LA MAGIA QUE ELIMINA LO BLANCO! */
+  margin: 0;
+  padding: 0;
+  background-color: #050b14; /* El color de fondo oscuro de Nexa */
+  font-family: 'Inter', system-ui, sans-serif; /* Tu fuente por defecto */
+}
