@@ -1,20 +1,24 @@
-<header class="header-container" [class.scrolled] = "isScrolled">
+<header class="header-container" [class.scrolled]="isScrolled">
   <div class="header-wrapper">
-    <!-- Logo  -->
+    
     <div class="logo-container">
       <img src="/imagenes/logo1.jpg" alt="NEXA Logo" class="logo" />
     </div>
 
-    <!-- Navegación -->
-    <nav class="nav-container">
-      <a href="/" class="nav-link">Inicio</a>
-      <a [routerLink]="['/']" fragment="proyectos" class="nav-link">Nuestro Trabajo</a>
-      <a [routerLink]="['/']" fragment="servicios" class="nav-link">Servicios</a>
-      <a routerLink="/sobre-nosotros" class="nav-link">Nosotros</a>
-      <a routerLink="/contacto" class="nav-link">Contactanos</a>
-      <a [routerLink]="['/packs']" class="agendar-btn">Agendar Cita</a>
+    <button class="mobile-menu-btn" (click)="toggleMenu()" [class.active]="menuAbierto">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-container" [class.open]="menuAbierto">
+      <a routerLink="/" class="nav-link" (click)="cerrarMenu()">Inicio</a>
+      <a [routerLink]="['/']" fragment="proyectos" class="nav-link" (click)="cerrarMenu()">Nuestro Trabajo</a>
+      <a [routerLink]="['/']" fragment="servicios" class="nav-link" (click)="cerrarMenu()">Servicios</a>
+      <a routerLink="/sobre-nosotros" class="nav-link" (click)="cerrarMenu()">Nosotros</a>
+      <a routerLink="/contacto" class="nav-link" (click)="cerrarMenu()">Contactanos</a>
+      <a routerLink="/packs" class="agendar-btn" (click)="cerrarMenu()">Agendar Cita</a>
     </nav>
 
- 
   </div>
 </header>

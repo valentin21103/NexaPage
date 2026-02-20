@@ -3,46 +3,24 @@
    ============================================ */
 .header-container {
   width: 100%;
-  
-  /* 1. ESTO HACE QUE TE SIGA (FIXED) */
   position: fixed; 
   top: 0;
   left: 0;
-  z-index: 1000; /* Asegura que esté siempre encima de todo */
-
-  /* 2. ESTO HACE QUE SEA TRANSPARENTE AL INICIO */
-  /* Al ser transparente y fixed, se ve el Home Component que está debajo */
+  z-index: 1000;
   background: transparent; 
-  
-  /* Sin borrosidad al principio */
   backdrop-filter: none; 
-  
-  padding: 1.5rem 0; /* Un poco más alto al principio */
-  transition: all 0.4s ease; /* Animación suave */
+  padding: 1.5rem 0; 
+  transition: all 0.4s ease; 
 }
 
-/* ============================================
-   ESTADO SCROLLEADO (CLASE .scrolled)
-   Esta clase se activa sola cuando bajas
-   ============================================ */
 .header-container.scrolled {
-  /* Fondo azul oscuro semitransparente */
-  background: rgba(10, 1, 41, 0.90); 
-  
-  /* Efecto vidrio esmerilado */
+  background: rgba(10, 1, 41, 0.95); 
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  
-  /* Se hace un poco más fino al bajar */
   padding: 0.8rem 0; 
-  
-  /* Sombra suave */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* ============================================
-   LÍNEA DECORATIVA INFERIOR
-   ============================================ */
 .header-container::after {
   content: '';
   position: absolute;
@@ -51,27 +29,28 @@
   width: 100%;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.5), transparent);
-  
-  /* Invisible al principio */
   opacity: 0; 
   transition: opacity 0.3s ease;
 }
 
-/* La línea aparece suavemente solo cuando bajas */
 .header-container.scrolled::after {
   opacity: 1; 
 }
 
 /* ============================================
-   HEADER WRAPPER (Alineación)
+   HEADER WRAPPER
    ============================================ */
 .header-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem; 
+  padding: 0 1.5rem; 
   display: flex;
-  justify-content: space-between; /* Manda logo a la izq y nav a la der */
+  justify-content: space-between; 
   align-items: center;
+}
+
+@media (min-width: 992px) {
+  .header-wrapper { padding: 0 2rem; }
 }
 
 /* ============================================
@@ -80,19 +59,24 @@
 .logo-container {
   display: flex;
   align-items: center;
-  padding: 0.5rem;
-  background: rgba(0, 0, 0, 0.2); /* Fondo sutil para el logo */
+  padding: 0.4rem;
+  background: rgba(0, 0, 0, 0.3); 
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(100, 200, 255, 0.2);
+  z-index: 1001; /* Queda arriba del menú móvil */
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid rgba(100, 200, 255, 0.6);
   transition: transform 0.3s ease;
+}
+
+@media (min-width: 992px) {
+  .logo { width: 60px; height: 60px; }
 }
 
 .logo:hover {
@@ -100,7 +84,42 @@
 }
 
 /* ============================================
-   NAVEGACIÓN
+   BOTÓN HAMBURGUESA (MÓVIL)
+   ============================================ */
+.mobile-menu-btn {
+  display: none; /* Oculto en PC */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001; /* Arriba de todo */
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #00d2ff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Animación de la X cuando está abierto */
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ============================================
+   NAVEGACIÓN (PC)
    ============================================ */
 .nav-container {
   display: flex;
@@ -110,16 +129,15 @@
 
 .nav-link {
   text-decoration: none;
-  color: #e2e8f0; /* Blanco grisáceo para leerse bien */
+  color: #e2e8f0; 
   font-weight: 500;
   font-size: 1rem;
   padding: 0.5rem 0;
   position: relative;
   transition: color 0.3s ease;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra para leerse sobre cualquier imagen */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
 }
 
-/* Subrayado animado */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -139,51 +157,69 @@
   width: 100%;
 }
 
-/* ============================================
-   BOTÓN AGENDAR
-   ============================================ */
 .agendar-btn {
-  /* --- Tus estilos actuales se mantienen --- */
   background: linear-gradient(90deg, #4a90e2, #9b59b6);
   color: #ffffff;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
-  /* --- AGREGA ESTAS 3 LÍNEAS PARA EL ENLACE --- */
-  display: inline-block;   /* Para que respete el padding y márgenes como un botón */
-  text-decoration: none;  /* Quita el subrayado azul por defecto de los links */
-  text-align: center;     /* Asegura que el texto esté centrado */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: inline-block;  
+  text-decoration: none;  
+  text-align: center;     
 }
 
 .agendar-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
+  box-shadow: 0 6px 20px rgba(155, 89, 182, 0.6);
 }
 
 /* ============================================
-   RESPONSIVE
+   RESPONSIVE (MÓVIL & TABLET)
    ============================================ */
-@media (max-width: 768px) {
-  .header-wrapper {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+@media (max-width: 992px) {
+  .mobile-menu-btn {
+    display: flex; /* Mostramos la hamburguesa */
   }
-  
+
   .nav-container {
-    flex-wrap: wrap;
+    /* Convertimos la nav en un menú lateral a pantalla completa */
+    position: fixed;
+    top: 0;
+    right: -100%; /* Escondido a la derecha */
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 1, 41, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
     justify-content: center;
-    gap: 1rem;
+    align-items: center;
+    gap: 2.5rem;
+    transition: right 0.4s ease;
+    padding: 2rem;
   }
-  
+
+  /* Cuando se toca el botón, el menú entra a la pantalla */
+  .nav-container.open {
+    right: 0;
+  }
+
+  .nav-link {
+    font-size: 1.5rem; /* Textos más grandes para tocar con el dedo */
+    font-weight: 600;
+  }
+
   .agendar-btn {
     margin-left: 0;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    width: 100%; /* Botón ancho para celulares */
+    max-width: 300px;
   }
 }
