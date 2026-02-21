@@ -8,3 +8,18 @@ body {
 app-root {
   display: block;
 }
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* Prohíbe el scroll horizontal */
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: #050b14; /* Color de fondo para que no se vea blanco al rebotar */
+}
+
+/* Aplica el box-sizing a todo para que los paddings no ensanchen los objetos */
+*, *::before, *::after {
+  box-sizing: border-box;
+}

@@ -188,25 +188,21 @@
   }
 
   .nav-container {
-    /* Convertimos la nav en un menú lateral a pantalla completa */
     position: fixed;
     top: 0;
-    right: -100%; /* Escondido a la derecha */
+    right: -100%; 
     width: 100vw;
     height: 100vh;
-    background: rgba(10, 1, 41, 0.98);
-    backdrop-filter: blur(20px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2.5rem;
-    transition: right 0.4s ease;
-    padding: 2rem;
+    visibility: hidden; /* <-- AGREGA ESTO: Lo hace invisible mientras está cerrado */
+    opacity: 0;         /* <-- AGREGA ESTO: Ayuda a la transición */
+    transition: all 0.4s ease;
+    /* ... resto de tus estilos ... */
   }
 
-  /* Cuando se toca el botón, el menú entra a la pantalla */
   .nav-container.open {
     right: 0;
+    visibility: visible; /* <-- AGREGA ESTO: Lo vuelve a mostrar al abrir */
+    opacity: 1;
   }
 
   .nav-link {
