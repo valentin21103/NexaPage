@@ -1,91 +1,52 @@
-<section id="proyectos" class="proyectos-container">
+<section class="proyectos-container" id="proyectos">
   <div class="proyectos-inner">
     
-    <!-- Títulos de la sección -->
     <div class="proyectos-header">
-      <div class="section-badge">
-        CASOS DE ÉXITO
-      </div>
-      <h2 class="section-title">Nuestros Trabajos en Acción</h2>
-      <p class="section-subtitle">
-        Descubre cómo transformamos la presencia digital de empresas líderes. 
-        Cada proyecto refleja nuestra experiencia y compromiso con la excelencia.
-      </p>
+      <span class="section-badge">Casos de Exito</span>
+      <h2 class="section-title">Nuestro Trabajo</h2>
+      <p class="section-subtitle">Transformamos ideas en experiencias digitales de alto impacto.</p>
     </div>
 
-    <!-- Slider de Videos -->
     <div class="video-slider-container">
       <div class="video-slider-wrapper">
         <div class="video-slider" #slider>
           
-          <!-- Video 1: Pintureria Saenz Peña -->
-          <div class="video-slide active">
+          <div class="video-slide" [class.active]="currentSlide === 0">
             <div class="video-card">
               <div class="video-wrapper">
-                <video 
-                  #projectVideo
-                  class="project-video"
-                  controls
-                  preload="auto"
-                  muted
-                  loop
-                  playsinline>
-                  <source src="/Videos/PintureriaSaensMark.mp4" type="video/mp4">
-                  Tu navegador no soporta el elemento de video.
-                </video>
-                <div class="video-overlay">
-                  <div class="play-indicator">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                      <circle cx="30" cy="30" r="30" fill="rgba(255, 255, 255, 0.9)"/>
-                      <path d="M24 18L24 42L42 30L24 18Z" fill="#4a90e2"/>
-                    </svg>
-                  </div>
-                </div>
+                <iframe src="https://www.youtube.com/embed/u79rdZQiXgU?rel=0" class="project-video" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="video-info">
+                <span class="video-tag">Producción Audiovisual</span>
+                <h3 class="video-title">Muni. de Famaillá</h3>
+                <p class="video-description">Seguimiento de obras públicas y registro de infraestructura mediante tecnología drone, potenciando la comunicación visual de la gestión municipal.</p>
+             
+              </div>
+            </div>
+          </div>
+
+          <div class="video-slide" [class.active]="currentSlide === 1">
+            <div class="video-card">
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/HXJ6JG4KAKI?rel=0" class="project-video" frameborder="0" allowfullscreen></iframe>
               </div>
               <div class="video-info">
                 <span class="video-tag">Marketing Digital</span>
                 <h3 class="video-title">Pinturería Saenz Peña</h3>
-                <p class="video-description">
-                  Estrategia integral de marketing digital que elevó la presencia online 
-                  y aumentó el engagement de la marca en redes sociales.
-                </p>
-              
+                <p class="video-description">Estrategia integral en redes sociales y creación de contenido visual para aumentar el posicionamiento de marca en el sector retail.</p>
               </div>
             </div>
           </div>
 
-          <!-- Video 2: Ceraminort -->
-          <div class="video-slide">
+          <div class="video-slide" [class.active]="currentSlide === 2">
             <div class="video-card">
               <div class="video-wrapper">
-                <video 
-                  #projectVideo
-                  class="project-video"
-                  controls
-                  preload="auto"
-                  muted
-                  loop
-                  playsinline>
-                  <source src="/Videos/VasosNancy.mp4" type="video/mp4">
-                  Tu navegador no soporta el elemento de video.
-                </video>
-                <div class="video-overlay">
-                  <div class="play-indicator">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                      <circle cx="30" cy="30" r="30" fill="rgba(255, 255, 255, 0.9)"/>
-                      <path d="M24 18L24 42L42 30L24 18Z" fill="#4a90e2"/>
-                    </svg>
-                  </div>
-                </div>
+                <iframe src="https://www.youtube.com/embed/Tn2hd8zFZFg?rel=0" class="project-video" frameborder="0" allowfullscreen></iframe>
               </div>
               <div class="video-info">
-                <span class="video-tag">Marketing Digital</span>
+                <span class="video-tag">Contenido Social Media</span>
                 <h3 class="video-title">Ceraminort</h3>
-                <p class="video-description">
-                  Campaña de marketing digital que potenció la visibilidad de la marca 
-                  y generó un crecimiento significativo en su presencia online.
-                </p>
-              
+                <p class="video-description">Campaña de video marketing enfocada en la exhibición de productos  y captación de clientes potenciales en plataformas digitales.</p>
               </div>
             </div>
           </div>
@@ -93,33 +54,19 @@
         </div>
       </div>
 
-      <!-- Controles del Slider -->
       <div class="slider-controls">
-        <button class="slider-btn prev" (click)="previousSlide()" aria-label="Anterior">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+        <button class="slider-btn prev" (click)="previousSlide()" [disabled]="currentSlide === 0">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div class="slider-dots">
-          <span class="dot active" (click)="goToSlide(0)"></span>
-          <span class="dot" (click)="goToSlide(1)"></span>
+          <span class="dot" [class.active]="currentSlide === 0" (click)="goToSlide(0)"></span>
+          <span class="dot" [class.active]="currentSlide === 1" (click)="goToSlide(1)"></span>
+          <span class="dot" [class.active]="currentSlide === 2" (click)="goToSlide(2)"></span>
         </div>
-        <button class="slider-btn next" (click)="nextSlide()" aria-label="Siguiente">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+        <button class="slider-btn next" (click)="nextSlide()" [disabled]="currentSlide === totalSlides - 1">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
       </div>
     </div>
-
-    <!-- Logos de empresas (opcional) -->
-    <div class="companies-section">
-      <p class="companies-title">Empresas que confían en nosotros</p>
-      <div class="companies-logos">
-        <div class="company-logo">Pinturería Saenz Peña</div>
-        <div class="company-logo">Ceraminort</div>
-      </div>
-    </div>
-
   </div>
 </section>

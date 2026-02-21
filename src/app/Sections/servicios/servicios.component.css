@@ -1,18 +1,22 @@
 /* ============================================
-   SECCIÓN DE SERVICIOS DETALLADOS
+   SECCIÓN DE SERVICIOS DETALLADOS (Tu código original)
    ============================================ */
 .servicios-detallados-section {
   background-color: #ffffff; 
-  padding: 6rem 2rem; /* Más espacio vertical general */
+  padding: 4rem 1.5rem; /* Ajuste para que no sobre tanto aire en mobile */
   color: #1a202c; 
 }
 
+@media (min-width: 992px) {
+  .servicios-detallados-section { padding: 6rem 2rem; }
+}
+
 .sd-container {
-  max-width: 1400px; /* LA CLAVE DE LA ANCHURA: Pasamos de 1200px a 1400px */
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   flex-direction: column; 
-  gap: 3rem;
+  gap: 2rem; /* Menos gap en mobile para que no se separe tanto */
 }
 
 /* ============================================
@@ -28,69 +32,68 @@
 }
 
 .sd-title {
-  font-size: 3.2rem; /* Título gigante como en la foto */
+  font-size: 2.2rem; /* REDUCIDO EN MOBILE: Para que no aplaste todo */
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  color: #0f172a; /* Azul marino casi negro */
+  color: #0f172a;
 }
 
-/* El color específico para "Redes Sociales" */
-.text-gris {
-  color: #94a3b8; /* Gris azulado claro de tu diseño */
-}
+.text-gris { color: #94a3b8; }
 
 .sd-text {
   color: #475569; 
-  font-size: 1.05rem; /* Texto un poco más grande */
+  font-size: 1.05rem;
   line-height: 1.7;
-  margin-bottom: 2.5rem;
-  padding-right: 1rem; /* Un poco de margen para que no toque la foto */
+  margin-bottom: 1.5rem;
 }
 
+/* FIX IMAGEN GIGANTE: La limitamos en mobile */
 .sd-image-container {
   width: 100%;
+  max-height: 250px; /* Limitamos la altura en mobile para que no empuje todo abajo */
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+  margin-bottom: 1rem;
 }
 
 .sd-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover; /* Mantiene la proporción sin deformar */
   display: block;
 }
 
 /* ============================================
-   COLUMNA DERECHA: LISTA DE TARJETAS
+   COLUMNA DERECHA: TARJETAS (Tal cual te gustaban)
    ============================================ */
 .sd-lista-cards {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Separación amplia entre tarjetas */
+  gap: 1.5rem;
 }
 
-/* Estilos de cada tarjeta individual */
 .sd-card {
-  background-color: #f8fafc; /* Fondo gris/azulado súper claro como en la foto */
-  border: none; /* Quitamos el borde oscuro */
+  background-color: #f8fafc; 
+  border: none; 
   border-radius: 12px; 
-  padding: 2.5rem; /* Mucho padding (aire) interior para que se vean grandes */
+  padding: 2rem; /* Un pelín menos de padding en mobile */
   display: flex;
-  gap: 1.5rem;
+  gap: 1.2rem;
   align-items: flex-start;
   transition: all 0.3s ease;
 }
 
 .sd-card:hover {
   background-color: #ffffff; 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* Sombra elegante al pasar el mouse */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06); 
   transform: translateY(-4px);
 }
 
 .sd-card-icon {
   color: #3b82f6;
-  background-color: #ffffff; /* Cuadrito blanco para el ícono */
+  background-color: #ffffff; 
   border: 1px solid #e2e8f0; 
   padding: 0.8rem; 
   border-radius: 8px;
@@ -100,17 +103,10 @@
   flex-shrink: 0; 
 }
 
-.sd-card-icon svg {
-    width: 24px; /* Íconos un poco más grandes */
-    height: 24px;
-}
-
-.sd-card-content {
-  flex-grow: 1;
-}
+.sd-card-icon svg { width: 24px; height: 24px; }
 
 .sd-card-title {
-  font-size: 1.25rem; /* Títulos más presentes */
+  font-size: 1.2rem; 
   font-weight: 800;
   margin-bottom: 0.6rem;
   color: #0f172a;
@@ -123,12 +119,7 @@
   margin-bottom: 1rem;
 }
 
-.sd-card-list {
-  list-style: none; 
-  padding: 0;
-  margin: 0;
-}
-
+.sd-card-list { list-style: none; padding: 0; margin: 0; }
 .sd-card-list li {
   color: #64748b;
   font-size: 0.9rem; 
@@ -137,37 +128,46 @@
   position: relative;
 }
 
-/* El puntito azul */
 .sd-card-list li::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0.5rem; 
-  width: 5px;
-  height: 5px;
-  background-color: #3b82f6; /* Celeste intenso */
+  width: 5px; height: 5px;
+  background-color: #3b82f6; 
   border-radius: 50%;
 }
 
-
 /* ============================================
-   MEDIA QUERY PARA ESCRITORIO
+   MEDIA QUERY PARA ESCRITORIO (Tu código exacto)
    ============================================ */
 @media (min-width: 992px) {
   .sd-container {
     flex-direction: row; 
     align-items: flex-start; 
     justify-content: space-between; 
-    gap: 6rem; /* Separación gigante entre izquierda y derecha */
+    gap: 6rem; 
+  }
+
+  .sd-title {
+    font-size: 3.2rem; /* Recuperamos el título gigante para PC */
+  }
+
+  .sd-image-container {
+    max-height: none; /* Quitamos el límite de altura en PC */
   }
 
   .sd-intro-sticky {
-    flex: 0 0 40%; /* La izquierda ocupa el 40% del espacio total */
+    flex: 0 0 40%; 
     position: sticky;
     top: 4rem; 
   }
 
   .sd-lista-cards {
-    flex: 0 0 52%; /* La derecha ocupa el 52% (queda un 8% de margen en el medio) */
+    flex: 0 0 52%; 
+  }
+
+  .sd-card {
+    padding: 2.5rem; /* Recuperamos el padding grande para PC */
   }
 }
