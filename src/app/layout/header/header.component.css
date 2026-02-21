@@ -188,23 +188,33 @@
   }
 
   .nav-container {
+    /* --- ESTRUCTURA Y DISEÑO --- */
     position: fixed;
     top: 0;
-    right: -100%; 
+    right: -100%; /* Escondido a la derecha */
     width: 100vw;
     height: 100vh;
-    visibility: hidden; /* <-- AGREGA ESTO: Lo hace invisible mientras está cerrado */
-    opacity: 0;         /* <-- AGREGA ESTO: Ayuda a la transición */
-    transition: all 0.4s ease;
-    /* ... resto de tus estilos ... */
+    background: rgba(10, 1, 41, 0.98); /* Tu fondo azul oscuro */
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2rem;
+    z-index: 1000;
+
+    visibility: hidden; /* Invisible para el sistema mientras está cerrado */
+    opacity: 0;         /* Totalmente transparente */
+    transition: all 0.4s ease; /* Anima el movimiento y la aparición */
   }
 
+  /* Cuando el menú tiene la clase .open (se activa al clickear) */
   .nav-container.open {
     right: 0;
-    visibility: visible; /* <-- AGREGA ESTO: Lo vuelve a mostrar al abrir */
-    opacity: 1;
+    visibility: visible; /* Se vuelve visible para el sistema */
+    opacity: 1;         /* Aparece el color */
   }
-
   .nav-link {
     font-size: 1.5rem; /* Textos más grandes para tocar con el dedo */
     font-weight: 600;
