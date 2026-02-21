@@ -1,10 +1,11 @@
 <header class="header-container" [class.scrolled]="isScrolled">
   <div class="header-wrapper">
     
-    <div class="logo-container">
-      <img src="/imagenes/logo1.jpg" alt="NEXA Logo" class="logo" />
-    </div>
-
+<div class="logo-container">
+  <a routerLink="/" (click)="cerrarMenu()" class="logo-link">
+    <img src="/imagenes/logo1.jpg" alt="NEXA Logo" class="logo" />
+  </a>
+</div>
     <button class="mobile-menu-btn" (click)="toggleMenu()" [class.active]="menuAbierto">
       <span></span>
       <span></span>
