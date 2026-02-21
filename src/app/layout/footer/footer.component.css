@@ -10,6 +10,21 @@
   --social-bg: rgba(255, 255, 255, 0.05); /* Fondo casi invisible de las redes */
 }
 
+/* Esto asegura que tu imagen descargada se vea perfecta dentro del círculo */
+.social-img {
+  width: 24px;  /* Ajustá el tamaño a tu gusto */
+  height: 24px;
+  object-fit: contain; /* Para que no se deforme */
+  /* Si el icono es negro y lo querés blanco, podés usar este truco: */
+  /* filter: brightness(0) invert(1); */
+}
+
+/* Mantenemos el efecto hover que ya teníamos */
+.social-icon:hover .social-img {
+  transform: scale(1.2) rotate(10deg);
+  transition: transform 0.3s ease;
+}
+
 /* ============================================
    ESTRUCTURA PRINCIPAL
    ============================================ */
