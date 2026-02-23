@@ -6,7 +6,7 @@
   position: fixed; 
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 99999; /* ¡AQUÍ ESTÁ LA MAGIA! Ahora es intocable */
   background: transparent; 
   backdrop-filter: none; 
   padding: 1.5rem 0; 
@@ -63,7 +63,7 @@
   background: rgba(0, 0, 0, 0.3); 
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(100, 200, 255, 0.2);
-  z-index: 1001; /* Queda arriba del menú móvil */
+  z-index: 100000; /* Queda arriba del menú móvil y de todo el sitio */
 }
 
 .logo {
@@ -95,7 +95,7 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 1001; /* Arriba de todo */
+  z-index: 100000; /* Arriba de todo para que siempre se pueda cerrar el menú */
 }
 
 .mobile-menu-btn span {
@@ -202,10 +202,10 @@
     align-items: center;
     gap: 2.5rem;
     padding: 2rem;
-    z-index: 1000;
+    z-index: 99998; /* Un pelín abajo del botón hamburguesa pero por encima de la página */
 
     visibility: hidden; /* Invisible para el sistema mientras está cerrado */
-    opacity: 0;         /* Totalmente transparente */
+    opacity: 0;        /* Totalmente transparente */
     transition: all 0.4s ease; /* Anima el movimiento y la aparición */
   }
 
@@ -213,7 +213,7 @@
   .nav-container.open {
     right: 0;
     visibility: visible; /* Se vuelve visible para el sistema */
-    opacity: 1;         /* Aparece el color */
+    opacity: 1;        /* Aparece el color */
   }
   .nav-link {
     font-size: 1.5rem; /* Textos más grandes para tocar con el dedo */

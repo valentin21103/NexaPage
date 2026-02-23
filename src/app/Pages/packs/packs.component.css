@@ -1,8 +1,17 @@
+/* ==========================================================================
+   SECCIÓN DE PACKS Y SERVICIOS - NEXA (VERSION LIMPIA Y UNIFICADA)
+   ========================================================================== */
+
+/* --- 1. CONTENEDOR PRINCIPAL --- */
 .packs-section {
   background-color: #050b14;
   color: #ffffff;
   padding: 4rem 1rem; /* Más ajustado en móviles */
   font-family: 'Inter', system-ui, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .packs-section { margin-top: 80px; }
 }
 
 @media (min-width: 768px) {
@@ -14,6 +23,7 @@
   margin: 0 auto;
 }
 
+/* --- 2. HEADER DE LA SECCIÓN --- */
 .packs-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -47,9 +57,7 @@
   padding-bottom: 2rem;
 }
 
-/* =========================================
-   TOGGLE SWITCH (IMPONENTE Y RESPONSIVO)
-   ========================================= */
+/* --- 3. TOGGLE SWITCH (Interruptor Packs/Servicios) --- */
 .toggle-wrapper {
   display: flex;
   justify-content: center;
@@ -57,11 +65,11 @@
   gap: 1rem;
   margin-bottom: 3rem;
   position: relative; 
-  z-index: 9999;
+  z-index: 10; /* FIX APLICADO: Bajado de 9999 a 10 para no pisar el Header */
 }
 
 .toggle-label {
-  font-size: 1rem; /* Base celular */
+  font-size: 1rem;
   font-weight: 600;
   color: #64748b;
   transition: all 0.3s ease;
@@ -69,15 +77,14 @@
 
 .toggle-label.active {
   color: #00e5ff;
-  text-shadow: 0 0 15px rgba(0, 229, 255, 0.4); /* Glow más fuerte */
-  transform: scale(1.05); /* Pequeño realce visual */
+  text-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+  transform: scale(1.05);
 }
 
 .cursor-pointer {
   cursor: pointer;
 }
 
-/* Tamaños Base (Móvil - Pensado para el pulgar) */
 .switch-custom {
   position: relative;
   display: inline-block;
@@ -104,7 +111,7 @@
   left: 4px;
   bottom: 4px;
   background-color: white;
-  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
@@ -118,7 +125,6 @@
   transform: translateX(34px);
 }
 
-/* Tamaño Imponente (PC/Tablet) */
 @media (min-width: 768px) {
   .toggle-wrapper { gap: 1.5rem; margin-bottom: 4rem; }
   .toggle-label { font-size: 1.25rem; }
@@ -126,12 +132,12 @@
   .slider-custom:before { height: 38px; width: 38px; }
   .slider-custom.encendido:before { transform: translateX(44px); }
 }
-/* ======================== */
 
+/* --- 4. GRID DE PACKS COMPLETOS --- */
 .packs-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 1.5rem; /* Gap reducido en móvil */
+  gap: 1.5rem;
   margin-bottom: 4rem;
 }
 
@@ -146,7 +152,7 @@
 .pack-card {
   background-color: #111827;
   border-radius: 16px;
-  padding: 2rem 1.5rem; /* Adaptado para móvil */
+  padding: 2rem 1.5rem;
   border: 1px solid #1f2937;
   position: relative;
   display: flex;
@@ -257,102 +263,7 @@
   opacity: 0.9;
 }
 
-/* ============================================
-   BANNER DE PRESUPUESTO PERSONALIZADO
-   ============================================ */
-.custom-plan-banner {
-    background: linear-gradient(135deg, rgba(10, 1, 41, 0.95), rgba(13, 17, 28, 0.95));
-    border: 1px solid rgba(100, 200, 255, 0.2);
-    border-radius: 24px;
-    padding: 3rem;
-    margin-top: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.custom-plan-banner::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #00e5ff, #8a2be2);
-}
-
-.btn-service-select {
-  margin-top: 1.2rem;
-  padding: 0.6rem 1.5rem;
-  background-color: transparent;
-  color: #00e5ff;
-  border: 1px solid #00e5ff;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.btn-service-select:hover {
-  background-color: #00e5ff;
-  color: #050b14;
-  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
-}
-
-.neon-purple .btn-service-select {
-  color: #8a2be2;
-  border-color: #8a2be2;
-}
-
-.neon-purple .btn-service-select:hover {
-  background-color: #8a2be2;
-  color: #ffffff;
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
-}
-
-@media (min-width: 992px) {
-  .custom-plan-banner {
-    padding: 2.5rem 3rem;
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
-  }
-}
-
-.banner-content h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.banner-content p {
-  color: #94a3b8;
-  margin: 0;
-}
-
-.btn-banner {
-  background-color: transparent;
-  color: #00e5ff;
-  border: 2px solid #00e5ff;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.3s;
-  white-space: nowrap;
-}
-
-.btn-banner:hover {
-  background-color: #00e5ff;
-  color: #050b14;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
-}
-
+/* --- 5. GRID DE SERVICIOS INDIVIDUALES --- */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -405,7 +316,40 @@
   margin: 0;
 }
 
+.btn-service-select {
+  margin-top: 1.2rem;
+  padding: 0.6rem 1.5rem;
+  background-color: transparent;
+  color: #00e5ff;
+  border: 1px solid #00e5ff;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-service-select:hover {
+  background-color: #00e5ff;
+  color: #050b14;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+}
+
+.neon-purple .btn-service-select {
+  color: #8a2be2;
+  border-color: #8a2be2;
+}
+
+.neon-purple .btn-service-select:hover {
+  background-color: #8a2be2;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+}
+
 .service-card.coming-soon { border: 1px dashed #334155; opacity: 0.6; }
+
 .badge-coming-soon {
   position: absolute;
   top: 20px;
@@ -418,34 +362,24 @@
   letter-spacing: 1px;
   transform: rotate(45deg);
 }
+
 .card-icon.inactive svg { stroke: #64748b; }
 
-/* =========================================
-   BANNER PERSONALIZADO (FIX MOBILE)
-   ========================================= */
+/* --- 6. BANNER PERSONALIZADO (UNIFICADO MOBILE & PC) --- */
 .custom-plan-banner {
-    background: linear-gradient(135deg, rgba(10, 1, 41, 0.95), rgba(13, 17, 28, 0.95));
-    border: 1px solid rgba(100, 200, 255, 0.2);
-    border-radius: 24px;
-    padding: 2rem;
-    margin-top: 4rem;
-    display: flex;
-    flex-direction: column; /* Columna en móvil por defecto */
-    align-items: center;
-    text-align: center;
-    gap: 1.5rem;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-@media (min-width: 992px) {
-  .custom-plan-banner {
-    padding: 2.5rem 3rem;
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
-  }
+  background: linear-gradient(135deg, rgba(10, 1, 41, 0.95), rgba(13, 17, 28, 0.95));
+  border: 1px solid rgba(100, 200, 255, 0.2);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column; /* Columna en móvil por defecto */
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .custom-plan-banner::after {
@@ -454,6 +388,26 @@
   top: 0; left: 0; right: 0;
   height: 4px;
   background: linear-gradient(90deg, #00e5ff, #8a2be2);
+}
+
+@media (min-width: 992px) {
+  .custom-plan-banner {
+    padding: 3rem;
+    flex-direction: row; /* Fila en PC */
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.banner-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.banner-content p {
+  color: #94a3b8;
+  margin: 0;
 }
 
 .btn-banner {
@@ -465,40 +419,23 @@
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s;
+  white-space: nowrap;
 }
 
 .btn-banner:hover {
   background-color: #00e5ff;
   color: #050b14;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
 }
 
-/* Lógica del cambio de texto que pediste */
+/* FIX APLICADO: Lógica del cambio de texto */
 .text-mobile { display: none; }
 
 @media (max-width: 992px) {
-    .text-desktop { display: none; }
-    .text-mobile { display: inline; }
-    .btn-banner { width: 100%; text-align: center; }
-}
-
-/* --- ESTILOS EXTRAS --- */
-.service-card.coming-soon { border: 1px dashed #334155; opacity: 0.6; }
-.badge-coming-soon {
-  position: absolute;
-  top: 20px; right: -35px;
-  background-color: #475569;
-  color: white;
-  padding: 0.3rem 3rem;
-  font-size: 0.75rem;
-  transform: rotate(45deg);
-}
-
-@media (max-width: 768px){
-
-.packs-section{
-
-margin-top: 80px;
-
-}
-
+  .text-desktop { display: none; }
+  .text-mobile { display: inline; }
+  .btn-banner { 
+    width: 100%; 
+    text-align: center; 
+  }
 }
