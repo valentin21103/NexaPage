@@ -2,7 +2,7 @@
   <div class="proyectos-inner">
     
     <div class="proyectos-header">
-      <span class="section-badge">Casos de Exito</span>
+      <span class="section-badge">Casos de Éxito</span>
       <h2 class="section-title">Nuestro Trabajo</h2>
       <p class="section-subtitle">Transformamos ideas en experiencias digitales de alto impacto.</p>
     </div>
@@ -14,13 +14,12 @@
           <div class="video-slide" [class.active]="currentSlide === 0">
             <div class="video-card">
               <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/u79rdZQiXgU?rel=0" class="project-video" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/u79rdZQiXgU?rel=0&enablejsapi=1" class="project-video" frameborder="0" allowfullscreen></iframe>
               </div>
               <div class="video-info">
                 <span class="video-tag">Producción Audiovisual</span>
                 <h3 class="video-title">Muni. de Famaillá</h3>
                 <p class="video-description">Seguimiento de obras públicas y registro de infraestructura mediante tecnología drone, potenciando la comunicación visual de la gestión municipal.</p>
-             
               </div>
             </div>
           </div>
@@ -28,12 +27,12 @@
           <div class="video-slide" [class.active]="currentSlide === 1">
             <div class="video-card">
               <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/HXJ6JG4KAKI?rel=0" class="project-video" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/ypY9jeh87wU?rel=0&enablejsapi=1" class="project-video" frameborder="0" allowfullscreen></iframe>
               </div>
               <div class="video-info">
-                <span class="video-tag">Marketing Digital</span>
+                <span class="video-tag">Spot Comercial</span>
                 <h3 class="video-title">Pinturería Saenz Peña</h3>
-                <p class="video-description">Estrategia integral en redes sociales y creación de contenido visual para aumentar el posicionamiento de marca en el sector retail.</p>
+                <p class="video-description">Producción de comercial institucional destacando la identidad de marca y la experiencia de compra en el local.</p>
               </div>
             </div>
           </div>
@@ -41,12 +40,51 @@
           <div class="video-slide" [class.active]="currentSlide === 2">
             <div class="video-card">
               <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/Tn2hd8zFZFg?rel=0" class="project-video" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/Tn2hd8zFZFg?rel=0&enablejsapi=1" class="project-video" frameborder="0" allowfullscreen></iframe>
               </div>
               <div class="video-info">
                 <span class="video-tag">Contenido Social Media</span>
                 <h3 class="video-title">Ceraminort</h3>
-                <p class="video-description">Campaña de video marketing enfocada en la exhibición de productos  y captación de clientes potenciales en plataformas digitales.</p>
+                <p class="video-description">Campaña de video marketing enfocada en la exhibición de productos en plataformas digitales.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-slide" [class.active]="currentSlide === 3">
+            <div class="video-card">
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/zgpan-Ovzos?rel=0&enablejsapi=1" class="project-video" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="video-info">
+                <span class="video-tag">Cobertura de Evento</span>
+                <h3 class="video-title">Chester Home</h3>
+                <p class="video-description">Registro de inauguración y presentación.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-slide" [class.active]="currentSlide === 4">
+            <div class="video-card">
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/HXJ6JG4KAKI?rel=0&enablejsapi=1" class="project-video" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="video-info">
+                <span class="video-tag">Marketing Digital</span>
+                <h3 class="video-title">Estrategia Saenz Peña</h3>
+                <p class="video-description">Estrategia integral en redes sociales y creación de contenido visual.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-slide" [class.active]="currentSlide === 5">
+            <div class="video-card">
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/cZN3TxDkGb8?rel=0&enablejsapi=1" class="project-video" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="video-info">
+                <span class="video-tag">Inteligencia Artificial</span>
+                <h3 class="video-title">Campaña Viral con IA</h3>
+                <p class="video-description">Innovación publicitaria utilizando IA para recrear la estética de 'Stranger Things'</p>
               </div>
             </div>
           </div>
@@ -58,12 +96,17 @@
         <button class="slider-btn prev" (click)="previousSlide()" [disabled]="currentSlide === 0">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
+        
         <div class="slider-dots">
           <span class="dot" [class.active]="currentSlide === 0" (click)="goToSlide(0)"></span>
           <span class="dot" [class.active]="currentSlide === 1" (click)="goToSlide(1)"></span>
           <span class="dot" [class.active]="currentSlide === 2" (click)="goToSlide(2)"></span>
+          <span class="dot" [class.active]="currentSlide === 3" (click)="goToSlide(3)"></span>
+          <span class="dot" [class.active]="currentSlide === 4" (click)="goToSlide(4)"></span>
+          <span class="dot" [class.active]="currentSlide === 5" (click)="goToSlide(5)"></span>
         </div>
-        <button class="slider-btn next" (click)="nextSlide()" [disabled]="currentSlide === totalSlides - 1">
+        
+        <button class="slider-btn next" (click)="nextSlide()" [disabled]="currentSlide === 5">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
       </div>
