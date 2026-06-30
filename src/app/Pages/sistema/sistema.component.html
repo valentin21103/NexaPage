@@ -1,0 +1,172 @@
+<!-- ============================================================
+     PÁGINA: GestorPro  (ruta /sistema)
+     Landing de publicidad del sistema de gestión comercial
+     ============================================================ -->
+
+<!-- Plantilla de iconos reutilizable -->
+<ng-template #icon let-name="name">
+  <ng-container [ngSwitch]="name">
+    <svg *ngSwitchCase="'cart'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    <svg *ngSwitchCase="'box'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+    <svg *ngSwitchCase="'users'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <svg *ngSwitchCase="'cash'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
+    <svg *ngSwitchCase="'chart'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+    <svg *ngSwitchCase="'shield'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <svg *ngSwitchCase="'building'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/></svg>
+    <svg *ngSwitchCase="'refresh'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+    <svg *ngSwitchCase="'cloud'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+    <svg *ngSwitchCase="'wallet'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>
+    <svg *ngSwitchCase="'bolt'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+  </ng-container>
+</ng-template>
+
+<!-- ========================= HERO ========================= -->
+<section class="gp-hero">
+  <div class="gp-hero-bg"></div>
+  <div class="gp-hero-inner">
+
+    <div class="gp-hero-content">
+      <div class="gp-badge">Sistema de gestión para tu comercio</div>
+
+      <h1 class="gp-hero-title">
+        <span class="gp-brand">GestorPro</span>
+      </h1>
+      <p class="gp-hero-tagline">
+        El sistema con el que tu comercio vende, controla la caja, el stock y los
+        clientes — y se actualiza solo.
+      </p>
+      <p class="gp-hero-sub">
+        Un programa para tu computadora, fácil y rápido, pensado para vender en
+        segundos en el mostrador y tener tu negocio siempre bajo control.
+      </p>
+
+      <div class="gp-hero-actions">
+        <a routerLink="/sistema/descargar" class="gp-btn gp-btn-primary">Descargar la app</a>
+        <a [routerLink]="['/sistema']" fragment="demo" class="gp-btn gp-btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Ver demo en video
+        </a>
+      </div>
+
+      <div class="gp-hero-meta">
+        <span><strong>Para Windows</strong></span>
+        <span class="gp-dot">•</span>
+        <span><strong>Funciona online</strong></span>
+        <span class="gp-dot">•</span>
+        <span><strong>Se actualiza solo</strong></span>
+      </div>
+    </div>
+
+    <!-- Captura real de la app -->
+    <div class="gp-hero-media">
+      <div class="gp-window">
+        <div class="gp-window-bar">
+          <span class="gp-dot-r red"></span>
+          <span class="gp-dot-r yellow"></span>
+          <span class="gp-dot-r green"></span>
+          <span class="gp-window-title">GestorPro — Métricas</span>
+        </div>
+        <img class="gp-window-shot" src="/imagenes/gestorpro-metricas.png"
+             alt="Métricas de GestorPro: ventas del mes, ingresos, ganancia, productos más vendidos y métodos de pago" />
+      </div>
+      <div class="gp-float gp-float-1">⚡ Venta en segundos</div>
+      <div class="gp-float gp-float-2">🔒 Tus datos seguros</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== HIGHLIGHTS ===================== -->
+<section class="gp-highlights">
+  <div class="gp-highlights-inner">
+    <div class="gp-hl"><strong>Online</strong><span>Tu información siempre respaldada</span></div>
+    <div class="gp-hl"><strong>Se actualiza solo</strong><span>Sin reinstalar nada</span></div>
+    <div class="gp-hl"><strong>Caja en vivo</strong><span>Arqueo, egresos y fiados</span></div>
+    <div class="gp-hl"><strong>Sabés cuánto ganás</strong><span>Ganancia por producto</span></div>
+  </div>
+</section>
+
+<!-- ===================== POTENCIA / WHY ===================== -->
+<section class="gp-why">
+  <div class="gp-section-head">
+    <h4 class="gp-eyebrow">Por qué GestorPro</h4>
+    <h2 class="gp-section-title">No es una planilla. Es software real.</h2>
+    <p class="gp-section-text">
+      Hecho para que tu comercio venda más fácil y tengas todo bajo control, sin complicarte.
+    </p>
+  </div>
+
+  <div class="gp-why-grid">
+    <div class="gp-why-card" *ngFor="let p of potencia">
+      <div class="gp-why-icon">
+        <ng-container *ngTemplateOutlet="icon; context: { name: p.icon }"></ng-container>
+      </div>
+      <div>
+        <h3 class="gp-why-title">{{ p.title }}</h3>
+        <p class="gp-why-desc">{{ p.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CAPTURAS / GALERÍA ===================== -->
+<section id="capturas" class="gp-gallery">
+  <div class="gp-section-head">
+    <h4 class="gp-eyebrow">Por dentro</h4>
+    <h2 class="gp-section-title">Así se ve GestorPro</h2>
+    <p class="gp-section-text">Capturas reales del sistema funcionando, no maquetas.</p>
+  </div>
+
+  <div class="gp-gallery-grid">
+    <figure class="gp-shot">
+      <img src="/imagenes/gestorpro-venta.png"
+           alt="Pantalla de venta de GestorPro: catálogo con búsqueda por pistola, carrito y cobro" />
+      <figcaption>Venta · catálogo, pistola y cobro rápido (F2)</figcaption>
+    </figure>
+    <figure class="gp-shot">
+      <img src="/imagenes/gestorpro-fiados.png"
+           alt="Cuentas corrientes de GestorPro: lo que fió cada cliente, sus pagos y total a pagar" />
+      <figcaption>Clientes y fiados · qué debe cada uno y qué pagó</figcaption>
+    </figure>
+    <figure class="gp-shot">
+      <img src="/imagenes/gestorpro-analisis.png"
+           alt="Análisis de rentabilidad de GestorPro: ventas, ingreso, costo, ganancia y margen por producto" />
+      <figcaption>Rentabilidad · ganancia y margen por producto</figcaption>
+    </figure>
+    <figure class="gp-shot">
+      <img src="/imagenes/gestorpro-proveedores.png"
+           alt="Proveedores de GestorPro: compras, pagos, notas de crédito y saldo de cuenta corriente" />
+      <figcaption>Proveedores · compras, pagos y saldo de cuenta</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== DEMO VIDEO ===================== -->
+<section id="demo" class="gp-demo">
+  <div class="gp-demo-inner">
+    <div class="gp-section-head">
+      <h4 class="gp-eyebrow">En acción</h4>
+      <h2 class="gp-section-title">Mirá cómo se vende con GestorPro</h2>
+      <p class="gp-section-text">
+        Una venta real de mostrador: código de barras, venta a granel, descuento
+        y cobro rápido sin tocar el mouse.
+      </p>
+    </div>
+
+    <!-- =========================================================
+         VIDEO DE YOUTUBE
+         Cuando subas el video, reemplazá el bloque de abajo por:
+         <div class="gp-video-frame">
+           <iframe src="https://www.youtube.com/embed/TU_ID_DE_VIDEO?rel=0"
+                   frameborder="0"
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                   allowfullscreen></iframe>
+         </div>
+         ========================================================= -->
+    <div class="gp-video-placeholder">
+      <span class="gp-play"></span>
+      <span class="gp-video-label">Video demo</span>
+      <span class="gp-soon-badge">Próximamente</span>
+    </div>
+  </div>
+</section>

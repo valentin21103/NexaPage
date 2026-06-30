@@ -15,7 +15,6 @@ export class PacksComponent {
 
 cambiarVista() {
     this.mostrarIndividuales = !this.mostrarIndividuales;
-    console.log('¡Clic detectado! La variable ahora es:', this.mostrarIndividuales);
   }
   
 }

@@ -6,16 +6,19 @@
     <img src="/imagenes/logo1.jpg" alt="NEXA Logo" class="logo" />
   </a>
 </div>
-    <button class="mobile-menu-btn" (click)="toggleMenu()" [class.active]="menuAbierto">
+    <button class="mobile-menu-btn" (click)="toggleMenu()" [class.active]="menuAbierto"
+            type="button" aria-label="Abrir o cerrar menú" aria-controls="menu-principal"
+            [attr.aria-expanded]="menuAbierto">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <nav class="nav-container" [class.open]="menuAbierto">
+    <nav id="menu-principal" class="nav-container" [class.open]="menuAbierto">
       <a routerLink="/" class="nav-link" (click)="cerrarMenu()">Inicio</a>
       <a [routerLink]="['/']" fragment="proyectos" class="nav-link" (click)="cerrarMenu()">Nuestro Trabajo</a>
       <a [routerLink]="['/']" fragment="servicios" class="nav-link" (click)="cerrarMenu()">Servicios</a>
+      <a routerLink="/sistema" class="nav-link" (click)="cerrarMenu()">GestorPro</a>
       <a routerLink="/sobre-nosotros" class="nav-link" (click)="cerrarMenu()">Nosotros</a>
       <a routerLink="/contacto" class="nav-link" (click)="cerrarMenu()">Contactanos</a>
       <a routerLink="/packs" class="agendar-btn" (click)="cerrarMenu()">Ver Planes</a>

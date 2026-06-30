@@ -76,8 +76,7 @@ export class CheckoutComponent implements OnInit {
       .then(
         () => {
           this.statusMessage = '¡Solicitud enviada con éxito! Nos pondremos en contacto pronto.';
-          alert('¡Solicitud enviada con éxito!');
-          
+
           // Limpiamos el formulario
           this.formData = { nombre: '', empresa: '', email: '', telefono: '', detalles: '' };
           setTimeout(() => this.statusMessage = '', 5000);
@@ -85,7 +84,6 @@ export class CheckoutComponent implements OnInit {
         (error) => {
           this.statusMessage = 'Hubo un error al enviar. Por favor verifica tu conexión e intenta nuevamente.';
           console.error('FAILED...', (error as EmailJSResponseStatus).text);
-          alert('Hubo un error al enviar la solicitud.');
         }
       );
   }

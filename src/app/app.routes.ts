@@ -4,12 +4,16 @@ import { NosotrosComponent } from './Pages/nosotros/nosotros.component';
 import { ContactoComponent } from './Pages/contacto/contacto.component';
 import { PacksComponent } from './Pages/packs/packs.component';
 import { CheckoutComponent } from './Pages/checkout/checkout.component';
+import { SistemaComponent } from './Pages/sistema/sistema.component';
+import { DescargaComponent } from './Pages/descarga/descarga.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'sobre-nosotros', component: NosotrosComponent },
     { path: 'contacto', component: ContactoComponent },
     { path: 'packs', component: PacksComponent },
+    { path: 'sistema', component: SistemaComponent },
+    { path: 'sistema/descargar', component: DescargaComponent },
     { path: 'checkout', component: CheckoutComponent }, // <-- Le agregué el "Component" y la coma al final
     { path: '**', redirectTo: '' }
 ];

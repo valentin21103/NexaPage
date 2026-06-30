@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Repo git anidado creado por error (ignorar)
+/GestionAppFront

@@ -128,20 +128,6 @@
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-/* --- STATS --- */
-.hero-stats {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.stat-value { color: #fdfdfd; font-weight: 700; font-size: 1.5rem; }
-.stat:nth-child(1) .stat-value { color: #00d2ff; }
-.stat:nth-child(2) .stat-value { color: #cd72ee; }
-.stat:nth-child(3) .stat-value { color: #00ff9d; }
-.stat-label { color: #b5b5f8; font-size: 0.85rem; text-transform: uppercase; }
-
 /* --- VIDEO --- */
 .hero-media { width: 100%; display: flex; justify-content: center; order: 2; }
 
@@ -192,7 +178,6 @@ position: absolute;
   }
 
   .hero-actions { justify-content: flex-start; }
-  .hero-stats { justify-content: flex-start; }
 
   .hero-media {
     justify-content: flex-end;
